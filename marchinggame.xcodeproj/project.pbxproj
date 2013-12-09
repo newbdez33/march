@@ -2501,6 +2501,7 @@
 				GCC_PREFIX_HEADER = marchinggame/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = marchinggame/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/z33/Desktop/WorkSpaces/marchinggame/marchinggame/libs/cocos2dx/platform/third_party/ios/libraries,
@@ -2527,6 +2528,7 @@
 				GCC_PREFIX_HEADER = marchinggame/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = marchinggame/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/z33/Desktop/WorkSpaces/marchinggame/marchinggame/libs/cocos2dx/platform/third_party/ios/libraries,
