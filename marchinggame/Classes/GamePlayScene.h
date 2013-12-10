@@ -3,7 +3,9 @@
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::CCLayer
+using namespace cocos2d;
+
+class GamePlay : public cocos2d::CCLayer
 {
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -16,7 +18,13 @@ public:
     void menuCloseCallback(CCObject* pSender);
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(GamePlay);
+    
+    CCSize _screenSize;
+    
+    cocos2d::CCTMXTiledMap* _tileMap;
+    cocos2d::CCTMXLayer* _background;
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__

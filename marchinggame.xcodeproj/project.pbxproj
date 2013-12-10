@@ -15,17 +15,6 @@
 		CE33BD27185561B6008E78D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BD26185561B6008E78D3 /* UIKit.framework */; };
 		CE33BD29185561B6008E78D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BD28185561B6008E78D3 /* Foundation.framework */; };
 		CE33BD2B185561B6008E78D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BD2A185561B6008E78D3 /* CoreGraphics.framework */; };
-		CE33BD2F185561B6008E78D3 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD2E185561B6008E78D3 /* CloseNormal.png */; };
-		CE33BD31185561B6008E78D3 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD30185561B6008E78D3 /* CloseSelected.png */; };
-		CE33BD33185561B6008E78D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD32185561B6008E78D3 /* Default.png */; };
-		CE33BD35185561B6008E78D3 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD34185561B6008E78D3 /* HelloWorld.png */; };
-		CE33BD37185561B6008E78D3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD36185561B6008E78D3 /* Icon-72.png */; };
-		CE33BD39185561B6008E78D3 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD38185561B6008E78D3 /* Icon-Small-50.png */; };
-		CE33BD3B185561B6008E78D3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD3A185561B6008E78D3 /* Icon-Small.png */; };
-		CE33BD3D185561B6008E78D3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD3C185561B6008E78D3 /* Icon-Small@2x.png */; };
-		CE33BD3F185561B6008E78D3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD3E185561B6008E78D3 /* Icon.png */; };
-		CE33BD41185561B6008E78D3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD40185561B6008E78D3 /* Icon@2x.png */; };
-		CE33BD43185561B6008E78D3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = CE33BD42185561B6008E78D3 /* iTunesArtwork */; };
 		CE33BD48185561B6008E78D3 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BD47185561B6008E78D3 /* AppController.mm */; };
 		CE33BD4B185561B6008E78D3 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BD4A185561B6008E78D3 /* RootViewController.mm */; };
 		CE33BD4D185561B6008E78D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33BD4C185561B6008E78D3 /* main.m */; };
@@ -279,7 +268,9 @@
 		CE33C0B2185561BB008E78D3 /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0B1185561BB008E78D3 /* cpVect.c */; };
 		CE33C0BA185561BB008E78D3 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33C0B9185561BB008E78D3 /* libwebsockets.a */; };
 		CE33C0C0185561BB008E78D3 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */; };
-		CE33C0C3185561BB008E78D3 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0C2185561BB008E78D3 /* HelloWorldScene.cpp */; };
+		CE33C0C3185561BB008E78D3 /* GamePlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0C2185561BB008E78D3 /* GamePlayScene.cpp */; };
+		CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE33C0F11856EECB008E78D3 /* tilemap.tmx */; };
+		CE33C1091856FD96008E78D3 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C1081856FD96008E78D3 /* desert.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,17 +283,6 @@
 		CE33BD26185561B6008E78D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE33BD28185561B6008E78D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE33BD2A185561B6008E78D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CE33BD2E185561B6008E78D3 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseNormal.png; path = Resources/CloseNormal.png; sourceTree = "<group>"; };
-		CE33BD30185561B6008E78D3 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseSelected.png; path = Resources/CloseSelected.png; sourceTree = "<group>"; };
-		CE33BD32185561B6008E78D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		CE33BD34185561B6008E78D3 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelloWorld.png; path = Resources/HelloWorld.png; sourceTree = "<group>"; };
-		CE33BD36185561B6008E78D3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
-		CE33BD38185561B6008E78D3 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
-		CE33BD3A185561B6008E78D3 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
-		CE33BD3C185561B6008E78D3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
-		CE33BD3E185561B6008E78D3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		CE33BD40185561B6008E78D3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
-		CE33BD42185561B6008E78D3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		CE33BD44185561B6008E78D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		CE33BD46185561B6008E78D3 /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = "<group>"; };
 		CE33BD47185561B6008E78D3 /* AppController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppController.mm; path = ios/AppController.mm; sourceTree = "<group>"; };
@@ -871,8 +851,10 @@
 		CE33C0BC185561BB008E78D3 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		CE33C0BE185561BB008E78D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		CE33C0C1185561BB008E78D3 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		CE33C0C2185561BB008E78D3 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		CE33C0C1185561BB008E78D3 /* GamePlayScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GamePlayScene.h; path = Classes/GamePlayScene.h; sourceTree = "<group>"; };
+		CE33C0C2185561BB008E78D3 /* GamePlayScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GamePlayScene.cpp; path = Classes/GamePlayScene.cpp; sourceTree = "<group>"; };
+		CE33C0F11856EECB008E78D3 /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tilemap.tmx; path = Resources/tilemap.tmx; sourceTree = "<group>"; };
+		CE33C1081856FD96008E78D3 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = desert.png; path = Resources/desert.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -944,17 +926,8 @@
 		CE33BD2D185561B6008E78D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE33BD2E185561B6008E78D3 /* CloseNormal.png */,
-				CE33BD30185561B6008E78D3 /* CloseSelected.png */,
-				CE33BD32185561B6008E78D3 /* Default.png */,
-				CE33BD34185561B6008E78D3 /* HelloWorld.png */,
-				CE33BD36185561B6008E78D3 /* Icon-72.png */,
-				CE33BD38185561B6008E78D3 /* Icon-Small-50.png */,
-				CE33BD3A185561B6008E78D3 /* Icon-Small.png */,
-				CE33BD3C185561B6008E78D3 /* Icon-Small@2x.png */,
-				CE33BD3E185561B6008E78D3 /* Icon.png */,
-				CE33BD40185561B6008E78D3 /* Icon@2x.png */,
-				CE33BD42185561B6008E78D3 /* iTunesArtwork */,
+				CE33C1081856FD96008E78D3 /* desert.png */,
+				CE33C0F11856EECB008E78D3 /* tilemap.tmx */,
 				CE33BD44185561B6008E78D3 /* Info.plist */,
 			);
 			name = Resources;
@@ -2095,8 +2068,8 @@
 			children = (
 				CE33C0BE185561BB008E78D3 /* AppDelegate.h */,
 				CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */,
-				CE33C0C1185561BB008E78D3 /* HelloWorldScene.h */,
-				CE33C0C2185561BB008E78D3 /* HelloWorldScene.cpp */,
+				CE33C0C1185561BB008E78D3 /* GamePlayScene.h */,
+				CE33C0C2185561BB008E78D3 /* GamePlayScene.cpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2151,18 +2124,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE33BD3F185561B6008E78D3 /* Icon.png in Resources */,
+				CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */,
 				CE33BDE2185561B7008E78D3 /* ChangeLog in Resources */,
-				CE33BD2F185561B6008E78D3 /* CloseNormal.png in Resources */,
-				CE33BD3B185561B6008E78D3 /* Icon-Small.png in Resources */,
-				CE33BD37185561B6008E78D3 /* Icon-72.png in Resources */,
-				CE33BD35185561B6008E78D3 /* HelloWorld.png in Resources */,
-				CE33BD39185561B6008E78D3 /* Icon-Small-50.png in Resources */,
-				CE33BD43185561B6008E78D3 /* iTunesArtwork in Resources */,
-				CE33BD3D185561B6008E78D3 /* Icon-Small@2x.png in Resources */,
-				CE33BD33185561B6008E78D3 /* Default.png in Resources */,
-				CE33BD31185561B6008E78D3 /* CloseSelected.png in Resources */,
-				CE33BD41185561B6008E78D3 /* Icon@2x.png in Resources */,
+				CE33C1091856FD96008E78D3 /* desert.png in Resources */,
 				CE33BF56185561B9008E78D3 /* project.pbxproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2398,7 +2362,7 @@
 				CE33BE71185561B8008E78D3 /* CCImage.mm in Sources */,
 				CE33C08A185561BB008E78D3 /* cpRatchetJoint.c in Sources */,
 				CE33C088185561BB008E78D3 /* cpPivotJoint.c in Sources */,
-				CE33C0C3185561BB008E78D3 /* HelloWorldScene.cpp in Sources */,
+				CE33C0C3185561BB008E78D3 /* GamePlayScene.cpp in Sources */,
 				CE33BEBF185561B8008E78D3 /* CCAnimationCache.cpp in Sources */,
 				CE33C07C185561BB008E78D3 /* cpConstraint.c in Sources */,
 				CE33BE2A185561B7008E78D3 /* CCMotionStreak.cpp in Sources */,
@@ -2566,6 +2530,7 @@
 				CE33C0C8185561BB008E78D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

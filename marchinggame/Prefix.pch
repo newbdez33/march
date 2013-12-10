@@ -6,3 +6,10 @@
 	#import <Foundation/Foundation.h>
 	#import <UIKit/UIKit.h>
 #endif
+
+//ENUMS z-order
+enum {
+    kBackground,
+    kMiddleground,
+    kForeground
+};
