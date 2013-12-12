@@ -13,3 +13,5 @@ enum {
     kMiddleground,
     kForeground
 };
+
+#define BOX_WIDTH 64

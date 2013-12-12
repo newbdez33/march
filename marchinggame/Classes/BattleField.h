@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "CommanderLayer.h"
 
 using namespace cocos2d;
 
@@ -20,6 +21,8 @@ public:
     CREATE_FUNC(BattleField);
     
     CCSize _screenSize;
+    
+    CommanderLayer *commanderLayer;
     
     cocos2d::CCTMXTiledMap* _tileMap;
     cocos2d::CCTMXLayer* _background;

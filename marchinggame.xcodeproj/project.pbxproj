@@ -271,6 +271,9 @@
 		CE33C0C3185561BB008E78D3 /* BattleField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0C2185561BB008E78D3 /* BattleField.cpp */; };
 		CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE33C0F11856EECB008E78D3 /* tilemap.tmx */; };
 		CE33C1091856FD96008E78D3 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C1081856FD96008E78D3 /* desert.png */; };
+		CE33C10C1859D20A008E78D3 /* CommanderLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */; };
+		CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10D1859EF4C008E78D3 /* commander1.png */; };
+		CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10F1859FCF3008E78D3 /* empty_commander.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -855,6 +858,10 @@
 		CE33C0C2185561BB008E78D3 /* BattleField.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BattleField.cpp; path = Classes/BattleField.cpp; sourceTree = "<group>"; };
 		CE33C0F11856EECB008E78D3 /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tilemap.tmx; path = Resources/tilemap.tmx; sourceTree = "<group>"; };
 		CE33C1081856FD96008E78D3 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = desert.png; path = Resources/desert.png; sourceTree = "<group>"; };
+		CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommanderLayer.cpp; path = Classes/CommanderLayer.cpp; sourceTree = "<group>"; };
+		CE33C10B1859D20A008E78D3 /* CommanderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommanderLayer.h; path = Classes/CommanderLayer.h; sourceTree = "<group>"; };
+		CE33C10D1859EF4C008E78D3 /* commander1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = commander1.png; path = Resources/commander1.png; sourceTree = "<group>"; };
+		CE33C10F1859FCF3008E78D3 /* empty_commander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_commander.png; path = Resources/empty_commander.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -926,6 +933,8 @@
 		CE33BD2D185561B6008E78D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE33C10F1859FCF3008E78D3 /* empty_commander.png */,
+				CE33C10D1859EF4C008E78D3 /* commander1.png */,
 				CE33C1081856FD96008E78D3 /* desert.png */,
 				CE33C0F11856EECB008E78D3 /* tilemap.tmx */,
 				CE33BD44185561B6008E78D3 /* Info.plist */,
@@ -2070,6 +2079,8 @@
 				CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */,
 				CE33C0C1185561BB008E78D3 /* BattleField.h */,
 				CE33C0C2185561BB008E78D3 /* BattleField.cpp */,
+				CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */,
+				CE33C10B1859D20A008E78D3 /* CommanderLayer.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2127,6 +2138,8 @@
 				CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */,
 				CE33BDE2185561B7008E78D3 /* ChangeLog in Resources */,
 				CE33C1091856FD96008E78D3 /* desert.png in Resources */,
+				CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */,
+				CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */,
 				CE33BF56185561B9008E78D3 /* project.pbxproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2250,6 +2263,7 @@
 				CE33BD89185561B7008E78D3 /* ccFPSImages.c in Sources */,
 				CE33C0A4185561BB008E78D3 /* cpSpace.c in Sources */,
 				CE33BE80185561B8008E78D3 /* AccelerometerSimulation.m in Sources */,
+				CE33C10C1859D20A008E78D3 /* CommanderLayer.cpp in Sources */,
 				CE33BD61185561B6008E78D3 /* CCActionGrid3D.cpp in Sources */,
 				CE33BF94185561B9008E78D3 /* CCNode+CCBRelativePositioning.cpp in Sources */,
 				CE33BF0C185561B9008E78D3 /* CCIMEDispatcher.cpp in Sources */,

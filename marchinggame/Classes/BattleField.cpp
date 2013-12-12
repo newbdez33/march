@@ -14,6 +14,10 @@ CCScene* BattleField::scene()
 
     // add layer as a child to scene
     scene->addChild(layer);
+    
+    CommanderLayer *cl = CommanderLayer::create();
+    scene->addChild(cl);
+    layer->commanderLayer = cl;
 
     // return the scene
     return scene;
@@ -33,7 +37,7 @@ bool BattleField::init()
     
     _tileMap = CCTMXTiledMap::create("tilemap.tmx");
     _background = _tileMap->layerNamed("background");
-    _tileMap->setPosition(ccp(0, 0));
+    _tileMap->setPosition(ccp(0, BOX_WIDTH));
     this->addChild(_tileMap, kBackground);
     
     CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
@@ -68,6 +72,6 @@ void BattleField::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
     
     newPos.x = 0;
     newPos.y = MIN(0, newPos.y);
-    newPos.y = MAX(newPos.y, _screenSize.height - _tileMap->boundingBox().size.height);
+    newPos.y = MAX(newPos.y, _screenSize.height - _tileMap->boundingBox().size.height - BOX_WIDTH);
     this->setPosition(newPos);
 }
