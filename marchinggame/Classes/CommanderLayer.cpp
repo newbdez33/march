@@ -46,7 +46,19 @@ void CommanderLayer::buildCommanderMenu() {
     this->addChild(_commandersMenu,kForeground);
 }
 
+void CommanderLayer::toggleTroopsMenu() {
+    
+    if(_commandersMenu->getPosition().y==BOX_WIDTH/2) {
+        _commandersMenu->setPosition(ccp(_commandersMenu->getPosition().x, BOX_WIDTH/2 + BOX_WIDTH));
+    }else {
+        _commandersMenu->setPosition(ccp(_commandersMenu->getPosition().x, BOX_WIDTH/2));
+    }
+    
+    //TODO show troops
+}
+
 void CommanderLayer::commanderSelected1() {
+    this->toggleTroopsMenu();
     CCLog("commanderSelected1");
 }
 void CommanderLayer::commanderSelected2() {

@@ -29,6 +29,8 @@ public:
     void commanderSelected4();
     void commanderSelected5();
     
+    void toggleTroopsMenu();
+    
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(CommanderLayer);
     
