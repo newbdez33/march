@@ -5,7 +5,7 @@
 
 using namespace cocos2d;
 
-class GamePlay : public cocos2d::CCLayer
+class BattleField : public cocos2d::CCLayer
 {
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -17,7 +17,7 @@ public:
     void adjustViewBoundingPosition(CCPoint newPos);
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
-    CREATE_FUNC(GamePlay);
+    CREATE_FUNC(BattleField);
     
     CCSize _screenSize;
     

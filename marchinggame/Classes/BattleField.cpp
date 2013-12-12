@@ -1,16 +1,16 @@
-#include "GamePlayScene.h"
+#include "BattleField.h"
 #include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-CCScene* GamePlay::scene()
+CCScene* BattleField::scene()
 {
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
-    GamePlay *layer = GamePlay::create();
+    BattleField *layer = BattleField::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -20,7 +20,7 @@ CCScene* GamePlay::scene()
 }
 
 // on "init" you need to initialize your instance
-bool GamePlay::init()
+bool BattleField::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -42,11 +42,11 @@ bool GamePlay::init()
 }
 
 #pragma mark - Touch Events
-bool GamePlay::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent) {
+bool BattleField::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent) {
     return true;
 }
 
-void GamePlay::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent) {
+void BattleField::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent) {
     
     CCPoint loc = this->convertTouchToNodeSpace(pTouch);
     
@@ -64,7 +64,7 @@ void GamePlay::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent) 
     
 }
 
-void GamePlay::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
+void BattleField::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
     
     newPos.x = 0;
     newPos.y = MIN(0, newPos.y);

@@ -268,7 +268,7 @@
 		CE33C0B2185561BB008E78D3 /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0B1185561BB008E78D3 /* cpVect.c */; };
 		CE33C0BA185561BB008E78D3 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33C0B9185561BB008E78D3 /* libwebsockets.a */; };
 		CE33C0C0185561BB008E78D3 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */; };
-		CE33C0C3185561BB008E78D3 /* GamePlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0C2185561BB008E78D3 /* GamePlayScene.cpp */; };
+		CE33C0C3185561BB008E78D3 /* BattleField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C0C2185561BB008E78D3 /* BattleField.cpp */; };
 		CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE33C0F11856EECB008E78D3 /* tilemap.tmx */; };
 		CE33C1091856FD96008E78D3 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C1081856FD96008E78D3 /* desert.png */; };
 /* End PBXBuildFile section */
@@ -851,8 +851,8 @@
 		CE33C0BC185561BB008E78D3 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		CE33C0BE185561BB008E78D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		CE33C0C1185561BB008E78D3 /* GamePlayScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GamePlayScene.h; path = Classes/GamePlayScene.h; sourceTree = "<group>"; };
-		CE33C0C2185561BB008E78D3 /* GamePlayScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GamePlayScene.cpp; path = Classes/GamePlayScene.cpp; sourceTree = "<group>"; };
+		CE33C0C1185561BB008E78D3 /* BattleField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BattleField.h; path = Classes/BattleField.h; sourceTree = "<group>"; };
+		CE33C0C2185561BB008E78D3 /* BattleField.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BattleField.cpp; path = Classes/BattleField.cpp; sourceTree = "<group>"; };
 		CE33C0F11856EECB008E78D3 /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tilemap.tmx; path = Resources/tilemap.tmx; sourceTree = "<group>"; };
 		CE33C1081856FD96008E78D3 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = desert.png; path = Resources/desert.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2068,8 +2068,8 @@
 			children = (
 				CE33C0BE185561BB008E78D3 /* AppDelegate.h */,
 				CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */,
-				CE33C0C1185561BB008E78D3 /* GamePlayScene.h */,
-				CE33C0C2185561BB008E78D3 /* GamePlayScene.cpp */,
+				CE33C0C1185561BB008E78D3 /* BattleField.h */,
+				CE33C0C2185561BB008E78D3 /* BattleField.cpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2362,7 +2362,7 @@
 				CE33BE71185561B8008E78D3 /* CCImage.mm in Sources */,
 				CE33C08A185561BB008E78D3 /* cpRatchetJoint.c in Sources */,
 				CE33C088185561BB008E78D3 /* cpPivotJoint.c in Sources */,
-				CE33C0C3185561BB008E78D3 /* GamePlayScene.cpp in Sources */,
+				CE33C0C3185561BB008E78D3 /* BattleField.cpp in Sources */,
 				CE33BEBF185561B8008E78D3 /* CCAnimationCache.cpp in Sources */,
 				CE33C07C185561BB008E78D3 /* cpConstraint.c in Sources */,
 				CE33BE2A185561B7008E78D3 /* CCMotionStreak.cpp in Sources */,
