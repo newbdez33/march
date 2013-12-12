@@ -14,8 +14,7 @@ public:
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static cocos2d::CCScene* scene();
     
-    // a selector callback
-    void menuCloseCallback(CCObject* pSender);
+    void adjustViewBoundingPosition(CCPoint newPos);
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(GamePlay);
@@ -24,6 +23,9 @@ public:
     
     cocos2d::CCTMXTiledMap* _tileMap;
     cocos2d::CCTMXLayer* _background;
+    
+    virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
 
 };
 
