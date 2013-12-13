@@ -274,6 +274,9 @@
 		CE33C10C1859D20A008E78D3 /* CommanderLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */; };
 		CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10D1859EF4C008E78D3 /* commander1.png */; };
 		CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10F1859FCF3008E78D3 /* empty_commander.png */; };
+		CE33C112185A9131008E78D3 /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C111185A9131008E78D3 /* tank.png */; };
+		CE33C117185AAD58008E78D3 /* TroopSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C115185AAD58008E78D3 /* TroopSprite.cpp */; };
+		CE33C11B185ABCFA008E78D3 /* XTLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C119185ABCFA008E78D3 /* XTLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -862,6 +865,11 @@
 		CE33C10B1859D20A008E78D3 /* CommanderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommanderLayer.h; path = Classes/CommanderLayer.h; sourceTree = "<group>"; };
 		CE33C10D1859EF4C008E78D3 /* commander1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = commander1.png; path = Resources/commander1.png; sourceTree = "<group>"; };
 		CE33C10F1859FCF3008E78D3 /* empty_commander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_commander.png; path = Resources/empty_commander.png; sourceTree = "<group>"; };
+		CE33C111185A9131008E78D3 /* tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tank.png; path = Resources/tank.png; sourceTree = "<group>"; };
+		CE33C115185AAD58008E78D3 /* TroopSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TroopSprite.cpp; sourceTree = "<group>"; };
+		CE33C116185AAD58008E78D3 /* TroopSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopSprite.h; sourceTree = "<group>"; };
+		CE33C119185ABCFA008E78D3 /* XTLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XTLayer.cpp; sourceTree = "<group>"; };
+		CE33C11A185ABCFA008E78D3 /* XTLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -933,6 +941,7 @@
 		CE33BD2D185561B6008E78D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE33C111185A9131008E78D3 /* tank.png */,
 				CE33C10F1859FCF3008E78D3 /* empty_commander.png */,
 				CE33C10D1859EF4C008E78D3 /* commander1.png */,
 				CE33C1081856FD96008E78D3 /* desert.png */,
@@ -957,6 +966,7 @@
 		CE33BD4E185561B6008E78D3 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				CE33C118185ABCFA008E78D3 /* XTLayer */,
 				CE33BD4F185561B6008E78D3 /* cocos2dx */,
 				CE33BF3F185561B9008E78D3 /* CocosDenshion */,
 				CE33BF57185561B9008E78D3 /* extensions */,
@@ -2081,8 +2091,20 @@
 				CE33C0C2185561BB008E78D3 /* BattleField.cpp */,
 				CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */,
 				CE33C10B1859D20A008E78D3 /* CommanderLayer.h */,
+				CE33C115185AAD58008E78D3 /* TroopSprite.cpp */,
+				CE33C116185AAD58008E78D3 /* TroopSprite.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		CE33C118185ABCFA008E78D3 /* XTLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CE33C119185ABCFA008E78D3 /* XTLayer.cpp */,
+				CE33C11A185ABCFA008E78D3 /* XTLayer.h */,
+			);
+			name = XTLayer;
+			path = libs/XTLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2140,6 +2162,7 @@
 				CE33C1091856FD96008E78D3 /* desert.png in Resources */,
 				CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */,
 				CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */,
+				CE33C112185A9131008E78D3 /* tank.png in Resources */,
 				CE33BF56185561B9008E78D3 /* project.pbxproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2212,6 +2235,8 @@
 				CE33BE64185561B8008E78D3 /* CCDirectorCaller.mm in Sources */,
 				CE33BE4D185561B8008E78D3 /* CCImageCommonWebp.cpp in Sources */,
 				CE33BDBF185561B7008E78D3 /* CCGrabber.cpp in Sources */,
+				CE33C11B185ABCFA008E78D3 /* XTLayer.cpp in Sources */,
+				CE33C117185AAD58008E78D3 /* TroopSprite.cpp in Sources */,
 				CE33BD73185561B6008E78D3 /* CCActionTiledGrid.cpp in Sources */,
 				CE33C01D185561BA008E78D3 /* AnimationStateData.cpp in Sources */,
 				CE33C090185561BB008E78D3 /* cpSlideJoint.c in Sources */,

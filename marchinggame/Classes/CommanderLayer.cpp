@@ -44,17 +44,37 @@ void CommanderLayer::buildCommanderMenu() {
     //CCSize ss = CCDirector::sharedDirector()->getWinSize();
     _commandersMenu->setPosition(_commandersMenu->boundingBox().size.width/2, BOX_WIDTH/2);
     this->addChild(_commandersMenu,kForeground);
+    
+    //Troops menu
+    menuItem = CCSprite::create("tank.png");
+    CCMenuItemSprite *troop_tank = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
+    _troopsMenu = CCMenu::create(troop_tank, NULL);
+    _troopsMenu->alignItemsHorizontallyWithPadding(0);
+    _troopsMenu->setPosition(BOX_WIDTH/2, BOX_WIDTH/2);
+    _troopsMenu->setVisible(false);
+    this->addChild(_troopsMenu, kMiddleground);
+}
+
+void CommanderLayer::troopSelected() {
+    
+    CCSprite *tank = CCSprite::create("tank.png");
+    tank->setPosition(ccp(BOX_WIDTH/2, BOX_WIDTH/2 + BOX_WIDTH));
+    CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", tank);
+    
+    this->toggleTroopsMenu();
 }
 
 void CommanderLayer::toggleTroopsMenu() {
     
     if(_commandersMenu->getPosition().y==BOX_WIDTH/2) {
         _commandersMenu->setPosition(ccp(_commandersMenu->getPosition().x, BOX_WIDTH/2 + BOX_WIDTH));
+        _troopsMenu->setVisible(true);
     }else {
         _commandersMenu->setPosition(ccp(_commandersMenu->getPosition().x, BOX_WIDTH/2));
+        _troopsMenu->setVisible(false);
     }
     
-    //TODO show troops
+
 }
 
 void CommanderLayer::commanderSelected1() {

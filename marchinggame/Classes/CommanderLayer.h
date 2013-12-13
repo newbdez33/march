@@ -30,12 +30,14 @@ public:
     void commanderSelected5();
     
     void toggleTroopsMenu();
+    void troopSelected();
     
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(CommanderLayer);
     
     
     CCMenu * _commandersMenu;
+    CCMenu * _troopsMenu;
     
 };
 

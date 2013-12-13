@@ -4,6 +4,8 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
+#define TANK_PACE   10  //临时定义，每秒单位距离
+
 CCScene* BattleField::scene()
 {
     // 'scene' is an autorelease object
@@ -35,23 +37,79 @@ bool BattleField::init()
     
     _screenSize = CCDirector::sharedDirector()->getWinSize();
     
+    _troops = CCArray::createWithCapacity(5);
+    _troops->retain();
+    
     _tileMap = CCTMXTiledMap::create("tilemap.tmx");
     _background = _tileMap->layerNamed("background");
     _tileMap->setPosition(ccp(0, BOX_WIDTH));
     this->addChild(_tileMap, kBackground);
     
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    this->setTouchEnabled(true);
+    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(BattleField::troopSend), "TROOP_REQUEST", NULL);
+    
+    
     
     return true;
+}
+
+void BattleField::troopSend(cocos2d::CCSprite *troop) {
+    //CCLog("%p", troop);
+    //TODO action应该根据troop类型，集成在troop类里面，在这里直接调就行
+    //比如 troop->go(), troop->stop(), troop->glow();
+    _troops->addObject(troop);
+    CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(20, ccp(troop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
+    troop->runAction(move);
+    this->addChild(troop, kMiddleground);
+}
+
+void BattleField::troopDismiss(cocos2d::CCNode *sender) {
+    CCSprite *troop = (CCSprite *)sender;
+    troop->removeFromParent();
+    _troops->removeObject(troop);
+}
+
+void BattleField::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
+    
+    newPos.x = 0;
+    newPos.y = MIN(0, newPos.y);
+    newPos.y = MAX(newPos.y, _screenSize.height - _tileMap->boundingBox().size.height - BOX_WIDTH);
+    this->setPosition(newPos);
+}
+
+BattleField::~BattleField() {
+    CC_SAFE_RELEASE(_troops);
 }
 
 #pragma mark - Touch Events
-bool BattleField::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent) {
-    return true;
+void BattleField::xtTouchesBegan(cocos2d::CCSet *_touches, cocos2d::CCEvent *event) {
+    
+    CCLog("touch Began");
+    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
+    CCPoint location = pTouch->getLocationInView();
+    location = CCDirector::sharedDirector()->convertToGL( location );
+    for (int i=0; i<_troops->count(); i++) {
+        CCSprite *troop = (CCSprite *)_troops->objectAtIndex(i);
+        if (troop->boundingBox().containsPoint(location)) {
+            troop->stopAllActions();
+            _touchedTroop = troop;
+            return;
+        }
+    }
+    
+    _touchedTroop = NULL;
+    return;
+
 }
 
-void BattleField::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent) {
-    
+void BattleField::xtTouchesMoved(cocos2d::CCSet *_touches, cocos2d::CCEvent *event) {
+
+    if (_touchedTroop!=NULL) {
+        return;
+    }
+    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
     CCPoint loc = this->convertTouchToNodeSpace(pTouch);
     
     CCPoint prevoiusLoc = pTouch->getPreviousLocationInView();
@@ -65,13 +123,25 @@ void BattleField::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
     CCPoint next = ccpAdd(this->getPosition(), translation);
     
     this->adjustViewBoundingPosition(next);
-    
 }
 
-void BattleField::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
+void BattleField::xtSwipeGesture(XTLayer::XTTouchDirection direction, float distance, float speed) {
+
+    if (_touchedTroop==NULL) {
+        return;
+    }
     
-    newPos.x = 0;
-    newPos.y = MIN(0, newPos.y);
-    newPos.y = MAX(newPos.y, _screenSize.height - _tileMap->boundingBox().size.height - BOX_WIDTH);
-    this->setPosition(newPos);
+    CCLog("SWIP");
+    if (direction==DOWN) {
+        CCLog("DOWN");
+        //这里的troop移动需要定义到troop自己的class里面
+        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(20, ccp(_touchedTroop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
+        _touchedTroop->runAction(move);
+    }else if (direction==UP) {
+        CCLog("UP");
+        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(20, ccp(_touchedTroop->getPosition().x, -_tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
+        _touchedTroop->runAction(move);
+    }else {
+        CCLog("L or R");
+    }
 }
