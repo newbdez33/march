@@ -28,6 +28,7 @@ public:
     CREATE_FUNC(BattleField);
     
     CCSize _screenSize;
+    float _battleFieldY;
     
     CommanderLayer *commanderLayer;
     

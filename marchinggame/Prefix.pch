@@ -15,3 +15,4 @@ enum {
 };
 
 #define BOX_WIDTH 64
+#define IS_IPHONE5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE

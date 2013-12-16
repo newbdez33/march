@@ -28,7 +28,25 @@ bool AppDelegate::applicationDidFinishLaunching()
 {
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
-    pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
+    CCEGLView *pEGLView = CCEGLView::sharedOpenGLView();
+    pDirector->setOpenGLView(pEGLView);
+    
+    //设置view size
+    CCSize screenSize = pEGLView->getFrameSize();
+    CCSize designSize = CCSize(320, 480);
+    
+    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, kResolutionShowAll);
+    
+    //设置资源路径
+    std::vector<std::string> searchPaths;
+    if (screenSize.width > 320 ) {
+        searchPaths.push_back("iphonehd");
+        pDirector->setContentScaleFactor(1);    //320/designSize.width 临时
+    }else {
+        searchPaths.push_back("iphone");
+        pDirector->setContentScaleFactor(320/designSize.width);
+    }
+    CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
 
     // turn on display FPS
     pDirector->setDisplayStats(false);

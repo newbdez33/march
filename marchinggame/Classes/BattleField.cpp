@@ -36,13 +36,15 @@ bool BattleField::init()
     }
     
     _screenSize = CCDirector::sharedDirector()->getWinSize();
+    CCLog("screen hegith: %f", _screenSize.height);
+    _battleFieldY = _screenSize.height/5 * 2;   //5分之3
     
     _troops = CCArray::createWithCapacity(5);
     _troops->retain();
     
     _tileMap = CCTMXTiledMap::create("tilemap.tmx");
     _background = _tileMap->layerNamed("background");
-    _tileMap->setPosition(ccp(0, BOX_WIDTH));
+    _tileMap->setPosition(ccp(0, _battleFieldY));
     this->addChild(_tileMap, kBackground);
     
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
@@ -75,7 +77,7 @@ void BattleField::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
     
     newPos.x = 0;
     newPos.y = MIN(0, newPos.y);
-    newPos.y = MAX(newPos.y, _screenSize.height - _tileMap->boundingBox().size.height - BOX_WIDTH);
+    newPos.y = MAX(newPos.y, _screenSize.height - _tileMap->boundingBox().size.height - _battleFieldY);
     this->setPosition(newPos);
 }
 

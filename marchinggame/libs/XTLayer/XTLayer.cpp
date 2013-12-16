@@ -10,8 +10,8 @@
 
 XTLayer::XTLayer()
 {
-    this->_xtSwipeThreshold = 30;
-    this->_xtSwipeTime = 500;
+    this->_xtSwipeThreshold = 10;   //default 30
+    this->_xtSwipeTime = 500;   //default 500
     this->_xtTapThreshold =10;
     this->_xtTapTime = 250;
     this->_xtLongTapTreshold = 10;

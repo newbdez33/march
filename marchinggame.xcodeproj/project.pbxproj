@@ -277,6 +277,8 @@
 		CE33C112185A9131008E78D3 /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C111185A9131008E78D3 /* tank.png */; };
 		CE33C117185AAD58008E78D3 /* TroopSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C115185AAD58008E78D3 /* TroopSprite.cpp */; };
 		CE33C11B185ABCFA008E78D3 /* XTLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C119185ABCFA008E78D3 /* XTLayer.cpp */; };
+		CE33C11E185EED3B008E78D3 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = CE33C11C185EED3B008E78D3 /* iphone */; };
+		CE33C11F185EED3B008E78D3 /* iphonehd in Resources */ = {isa = PBXBuildFile; fileRef = CE33C11D185EED3B008E78D3 /* iphonehd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -870,6 +872,8 @@
 		CE33C116185AAD58008E78D3 /* TroopSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopSprite.h; sourceTree = "<group>"; };
 		CE33C119185ABCFA008E78D3 /* XTLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XTLayer.cpp; sourceTree = "<group>"; };
 		CE33C11A185ABCFA008E78D3 /* XTLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTLayer.h; sourceTree = "<group>"; };
+		CE33C11C185EED3B008E78D3 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iphone; path = Resources/iphone; sourceTree = "<group>"; };
+		CE33C11D185EED3B008E78D3 /* iphonehd */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iphonehd; path = Resources/iphonehd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -941,6 +945,8 @@
 		CE33BD2D185561B6008E78D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE33C11C185EED3B008E78D3 /* iphone */,
+				CE33C11D185EED3B008E78D3 /* iphonehd */,
 				CE33C111185A9131008E78D3 /* tank.png */,
 				CE33C10F1859FCF3008E78D3 /* empty_commander.png */,
 				CE33C10D1859EF4C008E78D3 /* commander1.png */,
@@ -2158,9 +2164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */,
+				CE33C11E185EED3B008E78D3 /* iphone in Resources */,
 				CE33BDE2185561B7008E78D3 /* ChangeLog in Resources */,
 				CE33C1091856FD96008E78D3 /* desert.png in Resources */,
 				CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */,
+				CE33C11F185EED3B008E78D3 /* iphonehd in Resources */,
 				CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */,
 				CE33C112185A9131008E78D3 /* tank.png in Resources */,
 				CE33BF56185561B9008E78D3 /* project.pbxproj in Resources */,
