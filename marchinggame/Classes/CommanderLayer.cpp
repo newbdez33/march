@@ -45,7 +45,9 @@ void CommanderLayer::buildCommanderMenu() {
             CCString *name = CCString::createWithFormat("troop_menu_%d.png", kind);
             menuItem = CCSprite::create(name->getCString());
             CCMenuItemSprite *troop = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
-            troop->setTag(kind);
+            CCSprite *troopSend = CCSprite::create(CCString::createWithFormat("troop%d.png", kind)->getCString());
+            troopSend->retain();
+            troop->setUserData(troopSend);
             troopMenuItems->addObject(troop);
         }
         CCMenu *troopsMenu = CCMenu::createWithArray(troopMenuItems);
@@ -65,10 +67,16 @@ void CommanderLayer::buildCommanderMenu() {
 
 void CommanderLayer::troopSelected(CCMenuItemSprite *troopMenu) {
     
-    int kind = troopMenu->getTag();
-    CCSprite *troop = CCSprite::create(CCString::createWithFormat("troop%d.png", kind)->getCString());
-    troop->setPosition(ccp(BOX_WIDTH/2 + _currentCommanderIdx*BOX_WIDTH , SCREEN_SPLIT_Y)); //y - BOX_WIDTH/2
-    CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", troop);
+    CCSprite *troopSend = (CCSprite *)troopMenu->getUserData();
+    
+    if(troopSend->getParent()!=NULL) {
+        //已经送出去了
+        
+    }else {
+        troopSend->setPosition(ccp(BOX_WIDTH/2 + _currentCommanderIdx*BOX_WIDTH , SCREEN_SPLIT_Y)); //y - BOX_WIDTH/2
+        CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", troopSend);
+    }
+
 
 }
 
