@@ -16,3 +16,4 @@ enum {
 
 #define BOX_WIDTH 64
 #define IS_IPHONE5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
+#define SCREEN_SPLIT_Y (CCDirector::sharedDirector()->getWinSize().height / 5 * 2)

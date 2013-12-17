@@ -272,9 +272,7 @@
 		CE33C0F21856EECB008E78D3 /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE33C0F11856EECB008E78D3 /* tilemap.tmx */; };
 		CE33C1091856FD96008E78D3 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C1081856FD96008E78D3 /* desert.png */; };
 		CE33C10C1859D20A008E78D3 /* CommanderLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */; };
-		CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10D1859EF4C008E78D3 /* commander1.png */; };
 		CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10F1859FCF3008E78D3 /* empty_commander.png */; };
-		CE33C112185A9131008E78D3 /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C111185A9131008E78D3 /* tank.png */; };
 		CE33C117185AAD58008E78D3 /* TroopSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C115185AAD58008E78D3 /* TroopSprite.cpp */; };
 		CE33C11B185ABCFA008E78D3 /* XTLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C119185ABCFA008E78D3 /* XTLayer.cpp */; };
 		CE33C11E185EED3B008E78D3 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = CE33C11C185EED3B008E78D3 /* iphone */; };
@@ -865,9 +863,7 @@
 		CE33C1081856FD96008E78D3 /* desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = desert.png; path = Resources/desert.png; sourceTree = "<group>"; };
 		CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommanderLayer.cpp; path = Classes/CommanderLayer.cpp; sourceTree = "<group>"; };
 		CE33C10B1859D20A008E78D3 /* CommanderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommanderLayer.h; path = Classes/CommanderLayer.h; sourceTree = "<group>"; };
-		CE33C10D1859EF4C008E78D3 /* commander1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = commander1.png; path = Resources/commander1.png; sourceTree = "<group>"; };
 		CE33C10F1859FCF3008E78D3 /* empty_commander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_commander.png; path = Resources/empty_commander.png; sourceTree = "<group>"; };
-		CE33C111185A9131008E78D3 /* tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tank.png; path = Resources/tank.png; sourceTree = "<group>"; };
 		CE33C115185AAD58008E78D3 /* TroopSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TroopSprite.cpp; sourceTree = "<group>"; };
 		CE33C116185AAD58008E78D3 /* TroopSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopSprite.h; sourceTree = "<group>"; };
 		CE33C119185ABCFA008E78D3 /* XTLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XTLayer.cpp; sourceTree = "<group>"; };
@@ -947,9 +943,7 @@
 			children = (
 				CE33C11C185EED3B008E78D3 /* iphone */,
 				CE33C11D185EED3B008E78D3 /* iphonehd */,
-				CE33C111185A9131008E78D3 /* tank.png */,
 				CE33C10F1859FCF3008E78D3 /* empty_commander.png */,
-				CE33C10D1859EF4C008E78D3 /* commander1.png */,
 				CE33C1081856FD96008E78D3 /* desert.png */,
 				CE33C0F11856EECB008E78D3 /* tilemap.tmx */,
 				CE33BD44185561B6008E78D3 /* Info.plist */,
@@ -2167,10 +2161,8 @@
 				CE33C11E185EED3B008E78D3 /* iphone in Resources */,
 				CE33BDE2185561B7008E78D3 /* ChangeLog in Resources */,
 				CE33C1091856FD96008E78D3 /* desert.png in Resources */,
-				CE33C10E1859EF4C008E78D3 /* commander1.png in Resources */,
 				CE33C11F185EED3B008E78D3 /* iphonehd in Resources */,
 				CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */,
-				CE33C112185A9131008E78D3 /* tank.png in Resources */,
 				CE33BF56185561B9008E78D3 /* project.pbxproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

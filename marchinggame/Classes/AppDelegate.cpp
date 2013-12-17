@@ -39,8 +39,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     //设置资源路径
     std::vector<std::string> searchPaths;
-    if (screenSize.width > 320 ) {
-        searchPaths.push_back("iphonehd");
+    if (screenSize.width > 320 ) {  //临时把高清直接从小图放大
+        searchPaths.push_back("iphone");    //iphonehd 临时
         pDirector->setContentScaleFactor(1);    //320/designSize.width 临时
     }else {
         searchPaths.push_back("iphone");
