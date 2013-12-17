@@ -5,7 +5,7 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define TANK_PACE   10  //临时定义，每秒单位距离
+#define TANK_PACE   2  //临时定义，每秒单位距离
 
 CCScene* BattleField::scene()
 {
@@ -156,9 +156,9 @@ void BattleField::update(float dt) {
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
         if(troop->getDirection()==kDirectionUp) {
-            troop->setPositionY(troop->getPositionY()+dt);
+            troop->setPositionY(troop->getPositionY()+dt*TANK_PACE);
         }else if(troop->getDirection()==kDirectionDown) {
-            troop->setPositionY(troop->getPositionY()-dt);
+            troop->setPositionY(troop->getPositionY()-dt*TANK_PACE);
         }
     }
     
