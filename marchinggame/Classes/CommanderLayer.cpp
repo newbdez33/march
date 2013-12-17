@@ -67,7 +67,7 @@ void CommanderLayer::troopSelected(CCMenuItemSprite *troopMenu) {
     
     int kind = troopMenu->getTag();
     CCSprite *troop = CCSprite::create(CCString::createWithFormat("troop%d.png", kind)->getCString());
-    troop->setPosition(ccp(BOX_WIDTH/2 + _currentCommanderIdx*BOX_WIDTH , SCREEN_SPLIT_Y));
+    troop->setPosition(ccp(BOX_WIDTH/2 + _currentCommanderIdx*BOX_WIDTH , SCREEN_SPLIT_Y)); //y - BOX_WIDTH/2
     CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", troop);
 
 }
