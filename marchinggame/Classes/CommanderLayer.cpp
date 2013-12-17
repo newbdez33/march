@@ -22,6 +22,10 @@ bool CommanderLayer::init() {
     }
     
     _currentTroopsMenu = NULL;
+    _currentCommanderIdx = -1;
+    _channelSelected = CCSprite::create("channel_selected.png");
+    _channelSelected->setVisible(false);
+    this->addChild(_channelSelected);
     this->buildCommanderMenu();
     
     return true;
@@ -31,17 +35,17 @@ void CommanderLayer::buildCommanderMenu() {
     
     CCSprite * menuItem;
     CCArray * commanderMenuItems = CCArray::createWithCapacity(5);
-    for(int i=1; i<6; i++) {
+    for(int i=0; i<5; i++) {
         menuItem = CCSprite::create(CCString::createWithFormat("commander%d.png", i)->getCString());
         CCMenuItemSprite *commander = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected));
-        
+        commander->setTag(i);
         CCArray *troopMenuItems = CCArray::create();
         for(int i=0; i<4; i++) {
             int kind = (arc4random()%4);
-            CCLog("kind: %d", kind);
             CCString *name = CCString::createWithFormat("troop_menu_%d.png", kind);
             menuItem = CCSprite::create(name->getCString());
             CCMenuItemSprite *troop = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
+            troop->setTag(kind);
             troopMenuItems->addObject(troop);
         }
         CCMenu *troopsMenu = CCMenu::createWithArray(troopMenuItems);
@@ -59,18 +63,13 @@ void CommanderLayer::buildCommanderMenu() {
 
 }
 
-void CommanderLayer::troopSelected() {
+void CommanderLayer::troopSelected(CCMenuItemSprite *troopMenu) {
     
-    CCSprite *tank = CCSprite::create("troop1_sent.png");
-    tank->setPosition(ccp(BOX_WIDTH/2, BOX_WIDTH/2 + BOX_WIDTH));
-    CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", tank);
+    int kind = troopMenu->getTag();
+    CCSprite *troop = CCSprite::create(CCString::createWithFormat("troop%d.png", kind)->getCString());
+    troop->setPosition(ccp(BOX_WIDTH/2 + _currentCommanderIdx*BOX_WIDTH , SCREEN_SPLIT_Y));
+    CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", troop);
 
-}
-
-void CommanderLayer::toggleTroopsMenu() {
-    
-    //_troopsMenu->setVisible(true);
-    
 }
 
 void CommanderLayer::commanderSelected(CCMenuItemSprite *m) {
@@ -78,6 +77,10 @@ void CommanderLayer::commanderSelected(CCMenuItemSprite *m) {
     if(_currentTroopsMenu!=NULL) {
         _currentTroopsMenu->removeFromParent();
     }
+    
+    _currentCommanderIdx = m->getTag();
+    _channelSelected->setPosition(ccp(BOX_WIDTH*(_currentCommanderIdx+1)-_channelSelected->boundingBox().size.width/2, SCREEN_SPLIT_Y));
+    _channelSelected->setVisible(true);
 
     CCMenu *troopsMenu = (CCMenu *)m->getUserData();
     _currentTroopsMenu = troopsMenu;
