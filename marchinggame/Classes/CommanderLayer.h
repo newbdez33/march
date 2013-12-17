@@ -23,11 +23,7 @@ public:
     static cocos2d::CCScene* scene();
     
     void buildCommanderMenu();
-    void commanderSelected1();
-    void commanderSelected2();
-    void commanderSelected3();
-    void commanderSelected4();
-    void commanderSelected5();
+    void commanderSelected(CCMenuItemSprite *m);
     
     void toggleTroopsMenu();
     void troopSelected();
@@ -37,7 +33,7 @@ public:
     
     
     CCMenu * _commandersMenu;
-    CCMenu * _troopsMenu;
+    CCMenu * _currentTroopsMenu;
     
 };
 

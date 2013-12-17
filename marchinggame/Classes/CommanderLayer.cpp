@@ -8,6 +8,7 @@
 
 #include "CommanderLayer.h"
 #include "SimpleAudioEngine.h"
+#include <stdio.h>
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -20,6 +21,7 @@ bool CommanderLayer::init() {
         return false;
     }
     
+    _currentTroopsMenu = NULL;
     this->buildCommanderMenu();
     
     return true;
@@ -28,37 +30,33 @@ bool CommanderLayer::init() {
 void CommanderLayer::buildCommanderMenu() {
     
     CCSprite * menuItem;
-    menuItem = CCSprite::create("commander1.png");
-    CCMenuItemSprite *commander1 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected1));
-    menuItem = CCSprite::create("commander2.png");
-    CCMenuItemSprite *commander2 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected2));
-    menuItem = CCSprite::create("commander3.png");
-    CCMenuItemSprite *commander3 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected3));
-    menuItem = CCSprite::create("commander4.png");
-    CCMenuItemSprite *commander4 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected4));
-    menuItem = CCSprite::create("commander5.png");
-    CCMenuItemSprite *commander5 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected5));
+    CCArray * commanderMenuItems = CCArray::createWithCapacity(5);
+    for(int i=1; i<6; i++) {
+        menuItem = CCSprite::create(CCString::createWithFormat("commander%d.png", i)->getCString());
+        CCMenuItemSprite *commander = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::commanderSelected));
+        
+        CCArray *troopMenuItems = CCArray::create();
+        for(int i=0; i<4; i++) {
+            int kind = (arc4random()%4);
+            CCLog("kind: %d", kind);
+            CCString *name = CCString::createWithFormat("troop_menu_%d.png", kind);
+            menuItem = CCSprite::create(name->getCString());
+            CCMenuItemSprite *troop = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
+            troopMenuItems->addObject(troop);
+        }
+        CCMenu *troopsMenu = CCMenu::createWithArray(troopMenuItems);
+        troopsMenu->alignItemsHorizontallyWithPadding(0);
+        commander->setUserData(troopsMenu);
+        troopsMenu->retain();
+        
+        commanderMenuItems->addObject(commander);
+    }
     
-    _commandersMenu = CCMenu::create(commander1, commander2, commander3, commander4, commander5, NULL);
+    _commandersMenu = CCMenu::createWithArray(commanderMenuItems);
     _commandersMenu->alignItemsHorizontallyWithPadding(0);
-    //CCSize ss = CCDirector::sharedDirector()->getWinSize();
-    _commandersMenu->setPosition(_commandersMenu->boundingBox().size.width/2, SCREEN_SPLIT_Y - menuItem->boundingBox().size.height/2);
+    _commandersMenu->setPosition(_commandersMenu->boundingBox().size.width/2, SCREEN_SPLIT_Y - 64);
     this->addChild(_commandersMenu,kForeground);
-    
-    //Troops menu
-    menuItem = CCSprite::create("troop_menu_1.png");
-    CCMenuItemSprite *troop1 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
-    menuItem = CCSprite::create("troop_menu_2.png");
-    CCMenuItemSprite *troop2 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
-    menuItem = CCSprite::create("troop_menu_3.png");
-    CCMenuItemSprite *troop3 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
-    menuItem = CCSprite::create("troop_menu_4.png");
-    CCMenuItemSprite *troop4 = CCMenuItemSprite::create(menuItem, menuItem, this, menu_selector(CommanderLayer::troopSelected));
-    _troopsMenu = CCMenu::create(troop1, troop2, troop3, troop4, NULL);
-    _troopsMenu->alignItemsHorizontallyWithPadding(0);
-    _troopsMenu->setPosition(_troopsMenu->boundingBox().size.width/2, troop1->boundingBox().size.height/2);
-    _troopsMenu->setVisible(true);
-    this->addChild(_troopsMenu, kMiddleground);
+
 }
 
 void CommanderLayer::troopSelected() {
@@ -75,19 +73,15 @@ void CommanderLayer::toggleTroopsMenu() {
     
 }
 
-void CommanderLayer::commanderSelected1() {
-    this->toggleTroopsMenu();
-    CCLog("commanderSelected1");
+void CommanderLayer::commanderSelected(CCMenuItemSprite *m) {
+    
+    if(_currentTroopsMenu!=NULL) {
+        _currentTroopsMenu->removeFromParent();
+    }
+
+    CCMenu *troopsMenu = (CCMenu *)m->getUserData();
+    _currentTroopsMenu = troopsMenu;
+    troopsMenu->setPosition(troopsMenu->boundingBox().size.width/2, 32);
+    this->addChild(troopsMenu, kMiddleground);
 }
-void CommanderLayer::commanderSelected2() {
-    CCLog("commanderSelected1");
-}
-void CommanderLayer::commanderSelected3() {
-    CCLog("commanderSelected1");
-}
-void CommanderLayer::commanderSelected4() {
-    CCLog("commanderSelected1");
-}
-void CommanderLayer::commanderSelected5() {
-    CCLog("commanderSelected1");
-}
+
