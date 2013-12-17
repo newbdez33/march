@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "CommanderLayer.h"
 #include "XTLayer.h"
+#include "TroopSprite.h"
 
 using namespace cocos2d;
 
@@ -18,7 +19,7 @@ public:
     ~BattleField();
     
     CCArray *_troops;
-    CCSprite *_touchedTroop;
+    TroopSprite *_touchedTroop;
     
     void adjustViewBoundingPosition(CCPoint newPos);
     void troopSend(CCSprite*);
@@ -42,6 +43,9 @@ public:
     virtual void xtTouchesBegan(cocos2d::CCSet* _touches, cocos2d::CCEvent* event);
     virtual void xtTouchesMoved(cocos2d::CCSet* _touches, cocos2d::CCEvent* event);
     virtual void xtSwipeGesture(XTTouchDirection direction, float distance, float speed);
+    
+    
+    void update (float dt);
 
 };
 

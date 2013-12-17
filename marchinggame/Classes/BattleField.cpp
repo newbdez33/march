@@ -1,5 +1,6 @@
 #include "BattleField.h"
 #include "SimpleAudioEngine.h"
+#include "TroopSprite.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -52,7 +53,7 @@ bool BattleField::init()
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(BattleField::troopSend), "TROOP_REQUEST", NULL);
     
-    
+    this->scheduleUpdate();
     
     return true;
 }
@@ -62,8 +63,8 @@ void BattleField::troopSend(cocos2d::CCSprite *troop) {
     //TODO action应该根据troop类型，集成在troop类里面，在这里直接调就行
     //比如 troop->go(), troop->stop(), troop->glow();
     _troops->addObject(troop);
-    CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(troop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
-    troop->runAction(move);
+//    CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(troop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
+//    troop->runAction(move);
     this->addChild(troop, kMiddleground);
 }
 
@@ -92,9 +93,9 @@ void BattleField::xtTouchesBegan(cocos2d::CCSet *_touches, cocos2d::CCEvent *eve
     CCPoint location = pTouch->getLocationInView();
     location = CCDirector::sharedDirector()->convertToGL( location );
     for (int i=0; i<_troops->count(); i++) {
-        CCSprite *troop = (CCSprite *)_troops->objectAtIndex(i);
+        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
         if (troop->boundingBox().containsPoint(location)) {
-            troop->stopAllActions();
+            troop->setDirection(kDirectionHold);
             _touchedTroop = troop;
             return;
         }
@@ -136,13 +137,30 @@ void BattleField::xtSwipeGesture(XTLayer::XTTouchDirection direction, float dist
     if (direction==DOWN) {
         CCLog("DOWN");
         //这里的troop移动需要定义到troop自己的class里面
-        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(_touchedTroop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
-        _touchedTroop->runAction(move);
+//        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(_touchedTroop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
+//        _touchedTroop->runAction(move);
+        _touchedTroop->setDirection(kDirectionUp);
     }else if (direction==UP) {
         CCLog("UP");
-        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(_touchedTroop->getPosition().x, -_tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
-        _touchedTroop->runAction(move);
+//        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(_touchedTroop->getPosition().x, -_tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
+//        _touchedTroop->runAction(move);
+        _touchedTroop->setDirection(kDirectionDown);
     }else {
         CCLog("L or R");
     }
 }
+
+#pragma mark - Cocos2d Events
+void BattleField::update(float dt) {
+    
+    for(int i=0; i<_troops->count(); i++) {
+        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
+        if(troop->getDirection()==kDirectionUp) {
+            troop->setPositionY(troop->getPositionY()+dt);
+        }else if(troop->getDirection()==kDirectionDown) {
+            troop->setPositionY(troop->getPositionY()-dt);
+        }
+    }
+    
+}
+

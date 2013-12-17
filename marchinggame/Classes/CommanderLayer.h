@@ -25,6 +25,7 @@ public:
     void buildCommanderMenu();
     void commanderSelected(CCMenuItemSprite *m);
     void troopSelected(CCMenuItemSprite *troopMenu);
+    void moveControl(CCMenuItemSprite *item);
     
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(CommanderLayer);
@@ -34,6 +35,7 @@ public:
     CCMenu * _currentTroopsMenu;
     CCSprite *_channelSelected;
     int _currentCommanderIdx;
+    CCMenu * _moveControlMenu;
     
 };
 

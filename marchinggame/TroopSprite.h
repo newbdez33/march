@@ -14,31 +14,18 @@
 using namespace cocos2d;
 
 class TroopSprite : public CCSprite {
-//private:
-//    
-//    CCSprite *_glow;
-//    CCAction *_glowAction;
-//    CCAction *_jumpAction;
-//    
-//public:
-//    
-//    ~PaopaoSprite(void);
-//    PaopaoSprite(int ax, int ay, int akind);
-//    
-//	static PaopaoSprite* create(int ax, int ay, int akind);
-//    void initPaopao();
-//    
-//    CCPoint positionOnScreen(int offsetX, int offsetY);
-//    bool isNextTo(PaopaoSprite *other);
-//    
-//    //选中动画开关
-//    void glow(bool flag);
-//    void blink();
-//    void afterBlink();
-//    void jump();
-//    
-//    void exchangedWith(PaopaoSprite *other);
-//    void print(const char *prefix);
+private:
+    int _kind;
+public:
+    
+    CC_SYNTHESIZE(int, direction, Direction);
+    
+    ~TroopSprite(void);
+    TroopSprite(int akind);
+
+	static TroopSprite* create(int akind);
+    void initTroop();
+
 };
 
 #endif /* defined(__marchinggame__TroopSprite__) */
