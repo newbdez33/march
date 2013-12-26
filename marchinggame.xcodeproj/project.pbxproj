@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE315374186BF24300A14713 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE315373186BF24300A14713 /* Default-568h@2x.png */; };
 		CE33BD1D185561B6008E78D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BD1C185561B6008E78D3 /* QuartzCore.framework */; };
 		CE33BD1F185561B6008E78D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BD1E185561B6008E78D3 /* OpenGLES.framework */; };
 		CE33BD21185561B6008E78D3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BD20185561B6008E78D3 /* OpenAL.framework */; };
@@ -92,7 +93,7 @@
 		CE33BE49185561B7008E78D3 /* CCFileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE48185561B7008E78D3 /* CCFileUtils.cpp */; };
 		CE33BE4D185561B8008E78D3 /* CCImageCommonWebp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE4C185561B8008E78D3 /* CCImageCommonWebp.cpp */; };
 		CE33BE51185561B8008E78D3 /* CCSAXParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE50185561B8008E78D3 /* CCSAXParser.cpp */; };
-		CE33BE57185561B8008E78D3 /* AccelerometerDelegateWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE56185561B8008E78D3 /* AccelerometerDelegateWrapper.mm */; };
+		CE33BE57185561B8008E78D3 /* AccelerometerDelegateWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE56185561B8008E78D3 /* AccelerometerDelegateWrapper.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CE33BE5A185561B8008E78D3 /* CCAccelerometer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE59185561B8008E78D3 /* CCAccelerometer.mm */; };
 		CE33BE5D185561B8008E78D3 /* CCApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE5C185561B8008E78D3 /* CCApplication.mm */; };
 		CE33BE5F185561B8008E78D3 /* CCCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE5E185561B8008E78D3 /* CCCommon.mm */; };
@@ -105,7 +106,7 @@
 		CE33BE73185561B8008E78D3 /* CCLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE72185561B8008E78D3 /* CCLock.cpp */; };
 		CE33BE78185561B8008E78D3 /* CCThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE77185561B8008E78D3 /* CCThread.mm */; };
 		CE33BE7B185561B8008E78D3 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE7A185561B8008E78D3 /* EAGLView.mm */; };
-		CE33BE80185561B8008E78D3 /* AccelerometerSimulation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE7F185561B8008E78D3 /* AccelerometerSimulation.m */; };
+		CE33BE80185561B8008E78D3 /* AccelerometerSimulation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE7F185561B8008E78D3 /* AccelerometerSimulation.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CE33BE82185561B8008E78D3 /* platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BE81185561B8008E78D3 /* platform.cpp */; };
 		CE33BE92185561B8008E78D3 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BE91185561B8008E78D3 /* libcurl.a */; };
 		CE33BE94185561B8008E78D3 /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33BE93185561B8008E78D3 /* libwebp.a */; };
@@ -124,7 +125,7 @@
 		CE33BED2185561B8008E78D3 /* CCNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BED1185561B8008E78D3 /* CCNotificationCenter.cpp */; };
 		CE33BED5185561B8008E78D3 /* CCPointExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BED4185561B8008E78D3 /* CCPointExtension.cpp */; };
 		CE33BED8185561B8008E78D3 /* CCProfiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BED7185561B8008E78D3 /* CCProfiling.cpp */; };
-		CE33BEDB185561B8008E78D3 /* ccUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BEDA185561B8008E78D3 /* ccUTF8.cpp */; };
+		CE33BEDB185561B8008E78D3 /* ccUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BEDA185561B8008E78D3 /* ccUTF8.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CE33BEDE185561B8008E78D3 /* ccUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BEDD185561B8008E78D3 /* ccUtils.cpp */; };
 		CE33BEE1185561B8008E78D3 /* CCVertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BEE0185561B8008E78D3 /* CCVertex.cpp */; };
 		CE33BEE5185561B8008E78D3 /* CCComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BEE4185561B8008E78D3 /* CCComponent.cpp */; };
@@ -139,7 +140,7 @@
 		CE33BF07185561B9008E78D3 /* ZipUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF06185561B9008E78D3 /* ZipUtils.cpp */; };
 		CE33BF0C185561B9008E78D3 /* CCIMEDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF0B185561B9008E78D3 /* CCIMEDispatcher.cpp */; };
 		CE33BF0F185561B9008E78D3 /* CCTextFieldTTF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF0E185561B9008E78D3 /* CCTextFieldTTF.cpp */; };
-		CE33BF13185561B9008E78D3 /* CCTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF12185561B9008E78D3 /* CCTexture2D.cpp */; };
+		CE33BF13185561B9008E78D3 /* CCTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF12185561B9008E78D3 /* CCTexture2D.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CE33BF16185561B9008E78D3 /* CCTextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF15185561B9008E78D3 /* CCTextureAtlas.cpp */; };
 		CE33BF19185561B9008E78D3 /* CCTextureCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF18185561B9008E78D3 /* CCTextureCache.cpp */; };
 		CE33BF1C185561B9008E78D3 /* CCTextureETC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33BF1B185561B9008E78D3 /* CCTextureETC.cpp */; };
@@ -280,6 +281,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE315373186BF24300A14713 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE33BD19185561B6008E78D3 /* marchinggame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marchinggame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE33BD1C185561B6008E78D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE33BD1E185561B6008E78D3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -897,6 +899,7 @@
 		CE33BD10185561B6008E78D3 = {
 			isa = PBXGroup;
 			children = (
+				CE315373186BF24300A14713 /* Default-568h@2x.png */,
 				CE33BD2C185561B6008E78D3 /* marchinggame */,
 				CE33BD1B185561B6008E78D3 /* Frameworks */,
 				CE33BD1A185561B6008E78D3 /* Products */,
@@ -2162,6 +2165,7 @@
 				CE33BDE2185561B7008E78D3 /* ChangeLog in Resources */,
 				CE33C1091856FD96008E78D3 /* desert.png in Resources */,
 				CE33C11F185EED3B008E78D3 /* iphonehd in Resources */,
+				CE315374186BF24300A14713 /* Default-568h@2x.png in Resources */,
 				CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */,
 				CE33BF56185561B9008E78D3 /* project.pbxproj in Resources */,
 			);
@@ -2514,6 +2518,7 @@
 					"-lxml2",
 					"-lz",
 					"-lsqlite3",
+					"-Qunused-arguments",
 					"-websockets",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2541,6 +2546,7 @@
 					"-lxml2",
 					"-lz",
 					"-lsqlite3",
+					"-Qunused-arguments",
 					"-websockets",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

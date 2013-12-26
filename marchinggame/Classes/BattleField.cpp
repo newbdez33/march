@@ -5,7 +5,7 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define TANK_PACE   5  //临时定义，每秒单位距离
+#define TANK_PACE   10  //临时定义，每秒单位距离
 
 CCScene* BattleField::scene()
 {
