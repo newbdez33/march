@@ -5,7 +5,7 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define TANK_PACE   2  //临时定义，每秒单位距离
+#define TANK_PACE   5  //临时定义，每秒单位距离
 
 CCScene* BattleField::scene()
 {
@@ -38,7 +38,7 @@ bool BattleField::init()
     
     _screenSize = CCDirector::sharedDirector()->getWinSize();
     CCLog("screen hegith: %f", _screenSize.height);
-    _battleFieldY = _screenSize.height/5 * 2;   //5分之3
+    _battleFieldY = SCREEN_SPLIT_Y;
     
     _troops = CCArray::createWithCapacity(5);
     _troops->retain();
@@ -89,19 +89,19 @@ BattleField::~BattleField() {
 #pragma mark - Touch Events
 void BattleField::xtTouchesBegan(cocos2d::CCSet *_touches, cocos2d::CCEvent *event) {
     
-    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
-    CCPoint location = pTouch->getLocationInView();
-    location = CCDirector::sharedDirector()->convertToGL( location );
-    for (int i=0; i<_troops->count(); i++) {
-        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
-        if (troop->boundingBox().containsPoint(location)) {
-            troop->setDirection(kDirectionHold);
-            _touchedTroop = troop;
-            return;
-        }
-    }
+//    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
+//    CCPoint location = pTouch->getLocationInView();
+//    location = CCDirector::sharedDirector()->convertToGL( location );
+//    for (int i=0; i<_troops->count(); i++) {
+//        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
+//        if (troop->boundingBox().containsPoint(location)) {
+//            troop->setDirection(kDirectionHold);
+//            _touchedTroop = troop;
+//            return;
+//        }
+//    }
     
-    _touchedTroop = NULL;
+//    _touchedTroop = NULL;
     return;
 
 }
@@ -129,25 +129,21 @@ void BattleField::xtTouchesMoved(cocos2d::CCSet *_touches, cocos2d::CCEvent *eve
 
 void BattleField::xtSwipeGesture(XTLayer::XTTouchDirection direction, float distance, float speed) {
 
-    if (_touchedTroop==NULL) {
-        return;
-    }
-    
-    CCLog("SWIP");
-    if (direction==DOWN) {
-        CCLog("DOWN");
-        //这里的troop移动需要定义到troop自己的class里面
-//        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(_touchedTroop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
-//        _touchedTroop->runAction(move);
-        _touchedTroop->setDirection(kDirectionUp);
-    }else if (direction==UP) {
-        CCLog("UP");
-//        CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(_touchedTroop->getPosition().x, -_tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
-//        _touchedTroop->runAction(move);
-        _touchedTroop->setDirection(kDirectionDown);
-    }else {
-        CCLog("L or R");
-    }
+//    if (_touchedTroop==NULL) {
+//        return;
+//    }
+//    
+//    CCLog("SWIP");
+//    if (direction==DOWN) {
+//        CCLog("DOWN");
+//        _touchedTroop->setDirection(kDirectionUp);
+//    }else if (direction==UP) {
+//        CCLog("UP");
+//
+//        _touchedTroop->setDirection(kDirectionDown);
+//    }else {
+//        CCLog("L or R");
+//    }
 }
 
 #pragma mark - Cocos2d Events
@@ -155,10 +151,10 @@ void BattleField::update(float dt) {
     
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
-        if(troop->getDirection()==kDirectionUp) {
+        if(troop->getStatus()==kStatusForward) {
             troop->setPositionY(troop->getPositionY()+dt*TANK_PACE);
-        }else if(troop->getDirection()==kDirectionDown) {
-            troop->setPositionY(troop->getPositionY()-dt*TANK_PACE);
+        }else if(troop->getStatus()==kStatusAttack) {
+            //
         }
     }
     

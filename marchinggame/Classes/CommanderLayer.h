@@ -22,20 +22,14 @@ public:
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static cocos2d::CCScene* scene();
     
-    void buildCommanderMenu();
-    void commanderSelected(CCMenuItemSprite *m);
+    void buildCommandMenu();
     void troopSelected(CCMenuItemSprite *troopMenu);
-    void moveControl(CCMenuItemSprite *item);
     
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(CommanderLayer);
     
-    
-    CCMenu * _commandersMenu;
-    CCMenu * _currentTroopsMenu;
-    CCSprite *_channelSelected;
-    int _currentCommanderIdx;
-    CCMenu * _moveControlMenu;
+    CCMenu * _supportMenu;
+    CCMenu * _troopMenu;
     
 };
 

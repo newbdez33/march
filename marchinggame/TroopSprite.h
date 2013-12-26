@@ -18,7 +18,7 @@ private:
     int _kind;
 public:
     
-    CC_SYNTHESIZE(int, direction, Direction);
+    CC_SYNTHESIZE(int, status, Status);
     
     ~TroopSprite(void);
     TroopSprite(int akind);
