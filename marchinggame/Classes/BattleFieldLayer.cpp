@@ -1,6 +1,7 @@
-#include "BattleField.h"
+#include "BattleFieldLayer.h"
 #include "SimpleAudioEngine.h"
 #include "TroopSprite.h"
+#include "Box2D.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -18,12 +19,27 @@ CCScene* BattleField::scene()
     // add layer as a child to scene
     scene->addChild(layer);
     
-    CommanderLayer *cl = CommanderLayer::create();
-    scene->addChild(cl);
-    layer->commanderLayer = cl;
-
+    layer->_commanderLayer = CommanderLayer::create();
+    scene->addChild(layer->_commanderLayer);
+    
     // return the scene
     return scene;
+}
+
+void BattleField::initPhysics() {
+    b2Vec2 gravity;
+    gravity.Set(0.0f, 0.0f);    //真空呀，哥们
+    _world = new b2World(gravity);
+    _world->SetAllowSleeping(false);    //if not moving then not generationg derived data(skip checking for derived data from objects)
+    _world->SetContinuousPhysics(true); //连续检查碰撞
+    
+    m_debugDraw = new GLESDebugDraw( PTM_RATIO );
+    _world->SetDebugDraw(m_debugDraw);
+    
+    uint32 flags = 0;
+    flags += b2Draw::e_shapeBit;
+    m_debugDraw->SetFlags(flags);
+    
 }
 
 // on "init" you need to initialize your instance
@@ -84,6 +100,8 @@ void BattleField::adjustViewBoundingPosition(cocos2d::CCPoint newPos) {
 
 BattleField::~BattleField() {
     CC_SAFE_RELEASE(_troops);
+    delete _world;
+    _world = NULL;
 }
 
 #pragma mark - Touch Events
@@ -148,6 +166,8 @@ void BattleField::xtSwipeGesture(XTLayer::XTTouchDirection direction, float dist
 
 #pragma mark - Cocos2d Events
 void BattleField::update(float dt) {
+    
+    _world->Step(dt, 8, 1);
     
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);

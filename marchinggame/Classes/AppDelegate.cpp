@@ -10,7 +10,7 @@
 
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
-#include "BattleField.h"
+#include "BattleFieldLayer.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;

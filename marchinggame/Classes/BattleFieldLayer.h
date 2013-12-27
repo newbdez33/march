@@ -5,6 +5,7 @@
 #include "CommanderLayer.h"
 #include "XTLayer.h"
 #include "TroopSprite.h"
+#include "GLES-Render.h"
 
 using namespace cocos2d;
 
@@ -18,8 +19,7 @@ public:
     static cocos2d::CCScene* scene();
     ~BattleField();
     
-    CCArray *_troops;
-    TroopSprite *_touchedTroop;
+    void initPhysics();
     
     void adjustViewBoundingPosition(CCPoint newPos);
     void troopSend(CCSprite*);
@@ -28,16 +28,7 @@ public:
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(BattleField);
     
-    CCSize _screenSize;
-    float _battleFieldY;
-    
-    CommanderLayer *commanderLayer;
-    
-    cocos2d::CCTMXTiledMap* _tileMap;
-    cocos2d::CCTMXLayer* _background;
-    
-//    virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-//    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    CC_SYNTHESIZE(b2World *, _world, World);
     
     //XTLayer
     virtual void xtTouchesBegan(cocos2d::CCSet* _touches, cocos2d::CCEvent* event);
@@ -46,6 +37,17 @@ public:
     
     
     void update (float dt);
+    
+private:
+    
+    GLESDebugDraw * m_debugDraw;
+    CCArray *_troops;
+    TroopSprite *_touchedTroop;
+    CCSize _screenSize;
+    float _battleFieldY;
+    CommanderLayer *_commanderLayer;
+    cocos2d::CCTMXTiledMap* _tileMap;
+    cocos2d::CCTMXLayer* _background;
 
 };
 
