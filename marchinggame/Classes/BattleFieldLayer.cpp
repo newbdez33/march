@@ -6,7 +6,7 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define TANK_PACE   10  //临时定义，每秒单位距离
+#define TANK_PACE   30  //临时定义，每秒单位距离
 
 CCScene* BattleField::scene()
 {
@@ -20,26 +20,13 @@ CCScene* BattleField::scene()
     scene->addChild(layer);
     
     layer->_commanderLayer = CommanderLayer::create();
+    layer->_commanderLayer->setBattleField(layer);
     scene->addChild(layer->_commanderLayer);
+    
+    layer->release();
     
     // return the scene
     return scene;
-}
-
-void BattleField::initPhysics() {
-    b2Vec2 gravity;
-    gravity.Set(0.0f, 0.0f);    //真空呀，哥们
-    _world = new b2World(gravity);
-    _world->SetAllowSleeping(false);    //if not moving then not generationg derived data(skip checking for derived data from objects)
-    _world->SetContinuousPhysics(true); //连续检查碰撞
-    
-    m_debugDraw = new GLESDebugDraw( PTM_RATIO );
-    _world->SetDebugDraw(m_debugDraw);
-    
-    uint32 flags = 0;
-    flags += b2Draw::e_shapeBit;
-    m_debugDraw->SetFlags(flags);
-    
 }
 
 // on "init" you need to initialize your instance
@@ -63,6 +50,7 @@ bool BattleField::init()
     _background = _tileMap->layerNamed("background");
     _tileMap->setPosition(ccp(0, _battleFieldY));
     this->addChild(_tileMap, kBackground);
+    _tileMap->setVisible(false);
     
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
     this->setTouchEnabled(true);
@@ -71,7 +59,26 @@ bool BattleField::init()
     
     this->scheduleUpdate();
     
+    this->initPhysics();
+    
     return true;
+}
+
+void BattleField::initPhysics() {
+    
+    b2Vec2 gravity;
+    gravity.Set(0.0f, 0.0f);    //真空呀，哥们
+    _world = new b2World(gravity);
+    _world->SetAllowSleeping(false); //if not moving then not generationg derived data(skip checking for derived data from objects)
+    _world->SetContinuousPhysics(true); //连续检查碰撞
+    
+    m_debugDraw = new GLESDebugDraw( PTM_RATIO );
+    _world->SetDebugDraw(m_debugDraw);
+    
+    uint32 flags = 0;
+    flags += b2Draw::e_shapeBit;
+    m_debugDraw->SetFlags(flags);
+    
 }
 
 void BattleField::troopSend(cocos2d::CCSprite *troop) {
@@ -82,6 +89,7 @@ void BattleField::troopSend(cocos2d::CCSprite *troop) {
 //    CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(troop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
 //    troop->runAction(move);
     this->addChild(troop, kMiddleground);
+    troop->setVisible(false);
 }
 
 void BattleField::troopDismiss(cocos2d::CCNode *sender) {
@@ -102,24 +110,26 @@ BattleField::~BattleField() {
     CC_SAFE_RELEASE(_troops);
     delete _world;
     _world = NULL;
+    delete m_debugDraw;
+    m_debugDraw = NULL;
 }
 
 #pragma mark - Touch Events
 void BattleField::xtTouchesBegan(cocos2d::CCSet *_touches, cocos2d::CCEvent *event) {
     
-//    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
-//    CCPoint location = pTouch->getLocationInView();
-//    location = CCDirector::sharedDirector()->convertToGL( location );
-//    for (int i=0; i<_troops->count(); i++) {
-//        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
-//        if (troop->boundingBox().containsPoint(location)) {
-//            troop->setDirection(kDirectionHold);
-//            _touchedTroop = troop;
-//            return;
-//        }
-//    }
+    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
+    CCPoint location = pTouch->getLocationInView();
+    location = CCDirector::sharedDirector()->convertToGL( location );
+    for (int i=0; i<_troops->count(); i++) {
+        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
+        if (troop->boundingBox().containsPoint(location)) {
+            troop->setStatus(kStatusAttack);
+            _touchedTroop = troop;
+            return;
+        }
+    }
     
-//    _touchedTroop = NULL;
+    _touchedTroop = NULL;
     return;
 
 }
@@ -165,17 +175,33 @@ void BattleField::xtSwipeGesture(XTLayer::XTTouchDirection direction, float dist
 }
 
 #pragma mark - Cocos2d Events
+void BattleField::draw() {
+    
+    CCLayer::draw();
+    
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    
+    kmGLPushMatrix();
+    
+    _world->DrawDebugData();
+    
+    kmGLPopMatrix();
+    
+}
+
 void BattleField::update(float dt) {
     
-    _world->Step(dt, 8, 1);
+    _world->Step(dt, 10, 10);
     
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
         if(troop->getStatus()==kStatusForward) {
             troop->setPositionY(troop->getPositionY()+dt*TANK_PACE);
+            troop->setSpritePosition(troop->getPosition());
         }else if(troop->getStatus()==kStatusAttack) {
             //
         }
+        troop->update(dt);
     }
     
 }

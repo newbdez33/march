@@ -13,6 +13,8 @@
 
 using namespace cocos2d;
 
+class BattleField;
+
 class CommanderLayer : public cocos2d::CCLayer
 {
 public:
@@ -30,6 +32,7 @@ public:
     
     CCMenu * _supportMenu;
     CCMenu * _troopMenu;
+    CC_SYNTHESIZE(BattleField *, _battleField, BattleField);
     
 };
 

@@ -35,7 +35,7 @@ public:
     virtual void xtTouchesMoved(cocos2d::CCSet* _touches, cocos2d::CCEvent* event);
     virtual void xtSwipeGesture(XTTouchDirection direction, float distance, float speed);
     
-    
+    virtual void draw();
     void update (float dt);
     
 private:

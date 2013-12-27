@@ -13,22 +13,26 @@
 #include "Box2D.h"
 
 using namespace cocos2d;
+class BattleField;
 
 class TroopSprite : public CCSprite {
 private:
-    int _kind;
+    CCPoint _startPosition;
     
 public:
     
-    CC_SYNTHESIZE(int, status, Status);
+    CC_SYNTHESIZE(int, _status, Status);
     CC_SYNTHESIZE(b2Body *, _body, Body);
     CC_SYNTHESIZE(int, _type, Type);
+    CC_SYNTHESIZE(BattleField *, _battleField, BattleField);
     
     ~TroopSprite(void);
-    TroopSprite(int akind);
+    TroopSprite(BattleField * bf, int akind, CCPoint position);
 
-	static TroopSprite* create(int akind);
+	static TroopSprite* create(BattleField * bf, int akind, CCPoint position);
     void initTroop();
+    virtual void update(float dt);
+    virtual void setSpritePosition (CCPoint position);
 
 };
 

@@ -274,11 +274,9 @@
 		CE33C1091856FD96008E78D3 /* desert.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C1081856FD96008E78D3 /* desert.png */; };
 		CE33C10C1859D20A008E78D3 /* CommanderLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */; };
 		CE33C1101859FCF4008E78D3 /* empty_commander.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33C10F1859FCF3008E78D3 /* empty_commander.png */; };
-		CE33C117185AAD58008E78D3 /* TroopSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C115185AAD58008E78D3 /* TroopSprite.cpp */; };
 		CE33C11B185ABCFA008E78D3 /* XTLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE33C119185ABCFA008E78D3 /* XTLayer.cpp */; };
 		CE33C11E185EED3B008E78D3 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = CE33C11C185EED3B008E78D3 /* iphone */; };
 		CE33C11F185EED3B008E78D3 /* iphonehd in Resources */ = {isa = PBXBuildFile; fileRef = CE33C11D185EED3B008E78D3 /* iphonehd */; };
-		CEB80A7A186C006B0065B318 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80A78186C006B0065B318 /* GLES-Render.cpp */; };
 		CEB80ECB186C36440065B318 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80E6B186C36440065B318 /* b2BroadPhase.cpp */; };
 		CEB80ECC186C36440065B318 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80E6D186C36440065B318 /* b2CollideCircle.cpp */; };
 		CEB80ECD186C36440065B318 /* b2CollideEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80E6E186C36440065B318 /* b2CollideEdge.cpp */; };
@@ -324,6 +322,8 @@
 		CEB80EF5186C36440065B318 /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EC4186C36440065B318 /* b2WeldJoint.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CEB80EF6186C36440065B318 /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EC6186C36440065B318 /* b2WheelJoint.cpp */; };
 		CEB80EF7186C36440065B318 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EC9186C36440065B318 /* b2Rope.cpp */; };
+		CEB80EFD186D62F90065B318 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EF9186D62F80065B318 /* GLES-Render.cpp */; };
+		CEB80EFE186D62F90065B318 /* TroopSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EFB186D62F90065B318 /* TroopSprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -912,14 +912,10 @@
 		CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommanderLayer.cpp; path = Classes/CommanderLayer.cpp; sourceTree = "<group>"; };
 		CE33C10B1859D20A008E78D3 /* CommanderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommanderLayer.h; path = Classes/CommanderLayer.h; sourceTree = "<group>"; };
 		CE33C10F1859FCF3008E78D3 /* empty_commander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_commander.png; path = Resources/empty_commander.png; sourceTree = "<group>"; };
-		CE33C115185AAD58008E78D3 /* TroopSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TroopSprite.cpp; sourceTree = "<group>"; };
-		CE33C116185AAD58008E78D3 /* TroopSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopSprite.h; sourceTree = "<group>"; };
 		CE33C119185ABCFA008E78D3 /* XTLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XTLayer.cpp; sourceTree = "<group>"; };
 		CE33C11A185ABCFA008E78D3 /* XTLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTLayer.h; sourceTree = "<group>"; };
 		CE33C11C185EED3B008E78D3 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iphone; path = Resources/iphone; sourceTree = "<group>"; };
 		CE33C11D185EED3B008E78D3 /* iphonehd */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iphonehd; path = Resources/iphonehd; sourceTree = "<group>"; };
-		CEB80A78186C006B0065B318 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
-		CEB80A79186C006B0065B318 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		CEB80E69186C36440065B318 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		CEB80E6B186C36440065B318 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
 		CEB80E6C186C36440065B318 /* b2BroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BroadPhase.h; sourceTree = "<group>"; };
@@ -1011,6 +1007,10 @@
 		CEB80EC7186C36440065B318 /* b2WheelJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WheelJoint.h; sourceTree = "<group>"; };
 		CEB80EC9186C36440065B318 /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		CEB80ECA186C36440065B318 /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
+		CEB80EF9186D62F80065B318 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GLES-Render.cpp"; path = "Classes/GLES-Render.cpp"; sourceTree = "<group>"; };
+		CEB80EFA186D62F90065B318 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Classes/GLES-Render.h"; sourceTree = "<group>"; };
+		CEB80EFB186D62F90065B318 /* TroopSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TroopSprite.cpp; path = Classes/TroopSprite.cpp; sourceTree = "<group>"; };
+		CEB80EFC186D62F90065B318 /* TroopSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TroopSprite.h; path = Classes/TroopSprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2228,16 +2228,16 @@
 		CE33C0BD185561BB008E78D3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CEB80A78186C006B0065B318 /* GLES-Render.cpp */,
-				CEB80A79186C006B0065B318 /* GLES-Render.h */,
+				CEB80EF9186D62F80065B318 /* GLES-Render.cpp */,
+				CEB80EFA186D62F90065B318 /* GLES-Render.h */,
+				CEB80EFB186D62F90065B318 /* TroopSprite.cpp */,
+				CEB80EFC186D62F90065B318 /* TroopSprite.h */,
 				CE33C0BE185561BB008E78D3 /* AppDelegate.h */,
 				CE33C0BF185561BB008E78D3 /* AppDelegate.cpp */,
 				CE33C0C1185561BB008E78D3 /* BattleFieldLayer.h */,
 				CE33C0C2185561BB008E78D3 /* BattleFieldLayer.cpp */,
 				CE33C10A1859D20A008E78D3 /* CommanderLayer.cpp */,
 				CE33C10B1859D20A008E78D3 /* CommanderLayer.h */,
-				CE33C115185AAD58008E78D3 /* TroopSprite.cpp */,
-				CE33C116185AAD58008E78D3 /* TroopSprite.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2494,7 +2494,6 @@
 				CEB80EE4186C36440065B318 /* b2ChainAndPolygonContact.cpp in Sources */,
 				CE33C032185561BA008E78D3 /* CCSkeleton.cpp in Sources */,
 				CE33BF23185561B9008E78D3 /* CCParallaxNode.cpp in Sources */,
-				CEB80A7A186C006B0065B318 /* GLES-Render.cpp in Sources */,
 				CE33C0A6185561BB008E78D3 /* cpSpaceComponent.c in Sources */,
 				CEB80EDF186C36440065B318 /* b2Fixture.cpp in Sources */,
 				CE33BD90185561B7008E78D3 /* CCAffineTransform.cpp in Sources */,
@@ -2535,6 +2534,7 @@
 				CE33BF32185561B9008E78D3 /* CCTMXXMLParser.cpp in Sources */,
 				CE33BF87185561B9008E78D3 /* CCLayerGradientLoader.cpp in Sources */,
 				CEB80ED2186C36440065B318 /* b2TimeOfImpact.cpp in Sources */,
+				CEB80EFE186D62F90065B318 /* TroopSprite.cpp in Sources */,
 				CEB80EE0186C36440065B318 /* b2Island.cpp in Sources */,
 				CE33BEB4185561B8008E78D3 /* CCShaderCache.cpp in Sources */,
 				CE33BD67185561B6008E78D3 /* CCActionInterval.cpp in Sources */,
@@ -2548,7 +2548,6 @@
 				CE33BE4D185561B8008E78D3 /* CCImageCommonWebp.cpp in Sources */,
 				CE33BDBF185561B7008E78D3 /* CCGrabber.cpp in Sources */,
 				CE33C11B185ABCFA008E78D3 /* XTLayer.cpp in Sources */,
-				CE33C117185AAD58008E78D3 /* TroopSprite.cpp in Sources */,
 				CE33BD73185561B6008E78D3 /* CCActionTiledGrid.cpp in Sources */,
 				CEB80EF6186C36440065B318 /* b2WheelJoint.cpp in Sources */,
 				CE33C01D185561BA008E78D3 /* AnimationStateData.cpp in Sources */,
@@ -2636,6 +2635,7 @@
 				CEB80EEC186C36440065B318 /* b2DistanceJoint.cpp in Sources */,
 				CE33BF6F185561B9008E78D3 /* CCBSequenceProperty.cpp in Sources */,
 				CE33BDEE185561B7008E78D3 /* neon_matrix_impl.c in Sources */,
+				CEB80EFD186D62F90065B318 /* GLES-Render.cpp in Sources */,
 				CE33C096185561BB008E78D3 /* cpBB.c in Sources */,
 				CE33BFFA185561BA008E78D3 /* CCTableView.cpp in Sources */,
 				CE33BEC8185561B8008E78D3 /* CCSpriteFrame.cpp in Sources */,

@@ -23,6 +23,8 @@ bool CommanderLayer::init() {
     {
         return false;
     }
+    
+    _battleField = NULL;
 
     //背景
     CCSprite * bg = CCSprite::create("commander_bg.png");
@@ -56,13 +58,11 @@ void CommanderLayer::buildCommandMenu() {
 }
 
 void CommanderLayer::troopSelected(CCMenuItemSprite *troopMenu) {
-    
-    //TroopSprite *troopSend = (TroopSprite *)troopMenu->getUserData();
-    TroopSprite *troopSend = TroopSprite::create(troopMenu->getTag());
-    troopSend->initTroop();
-    troopSend->setStatus(kStatusForward);
+
     int p = (arc4random()%5);   //随机位置出现
-    troopSend->setPosition(ccp(BOX_WIDTH/2 + p*BOX_WIDTH , SCREEN_SPLIT_Y)); //y - BOX_WIDTH/2
+    CCPoint startPoint = ccp(BOX_WIDTH/2 + p*BOX_WIDTH , SCREEN_SPLIT_Y); //y - BOX_WIDTH/2
+    
+    TroopSprite *troopSend = TroopSprite::create(_battleField, troopMenu->getTag(), startPoint);
     CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", troopSend);
 
 }
