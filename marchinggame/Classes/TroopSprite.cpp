@@ -44,7 +44,7 @@ void TroopSprite::initTroop() {
     _body->SetAngularDamping(0.8);
     
     b2CircleShape circle;
-    circle.m_radius = 64/PTM_RATIO; //TODO 这个值要调整
+    circle.m_radius = 32.0f/PTM_RATIO; //TODO 这个值要调整
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &circle;
     fixtureDef.density = 5;

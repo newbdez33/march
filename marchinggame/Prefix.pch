@@ -27,7 +27,7 @@ enum {
  
 pay special attention to the subtle differences in speed(another common value for this ration is 100).
  */
-#define PTM_RATIO 100  //Pixel to Meter ration
+#define PTM_RATIO 32.0f  //Pixel to Meter ration
 #define BOX_WIDTH 64
 #define IS_IPHONE5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
 #define SCREEN_SPLIT_Y 110

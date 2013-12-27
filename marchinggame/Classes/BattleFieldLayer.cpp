@@ -50,7 +50,7 @@ bool BattleField::init()
     _background = _tileMap->layerNamed("background");
     _tileMap->setPosition(ccp(0, _battleFieldY));
     this->addChild(_tileMap, kBackground);
-    _tileMap->setVisible(false);
+    //_tileMap->setVisible(false);
     
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
     this->setTouchEnabled(true);
@@ -89,7 +89,7 @@ void BattleField::troopSend(cocos2d::CCSprite *troop) {
 //    CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(troop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
 //    troop->runAction(move);
     this->addChild(troop, kMiddleground);
-    troop->setVisible(false);
+    //troop->setVisible(false);
 }
 
 void BattleField::troopDismiss(cocos2d::CCNode *sender) {
@@ -123,7 +123,12 @@ void BattleField::xtTouchesBegan(cocos2d::CCSet *_touches, cocos2d::CCEvent *eve
     for (int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
         if (troop->boundingBox().containsPoint(location)) {
-            troop->setStatus(kStatusAttack);
+            if (troop->getStatus()==kStatusAttack) {
+                troop->setStatus(kStatusForward);
+            }else {
+                troop->setStatus(kStatusAttack);
+            }
+            
             _touchedTroop = troop;
             return;
         }

@@ -59,8 +59,12 @@ void CommanderLayer::buildCommandMenu() {
 
 void CommanderLayer::troopSelected(CCMenuItemSprite *troopMenu) {
 
-    int p = (arc4random()%5);   //随机位置出现
-    CCPoint startPoint = ccp(BOX_WIDTH/2 + p*BOX_WIDTH , SCREEN_SPLIT_Y); //y - BOX_WIDTH/2
+    int p = (arc4random()%(64*5))-32;   //随机位置出现
+    if (p<32) {
+        p=32;
+    }
+
+    CCPoint startPoint = ccp(p , SCREEN_SPLIT_Y); //y - BOX_WIDTH/2
     
     TroopSprite *troopSend = TroopSprite::create(_battleField, troopMenu->getTag(), startPoint);
     CCNotificationCenter::sharedNotificationCenter()->postNotification("TROOP_REQUEST", troopSend);
