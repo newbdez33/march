@@ -16,6 +16,7 @@ enum {
 
 enum {
     kStatusForward,
+    kStatusTarget,
     kStatusAttack,
     kStatusDied
 };

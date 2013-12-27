@@ -53,7 +53,7 @@ bool BattleField::init()
     //_tileMap->setVisible(false);
     
     _enemyBase = CCSprite::create("down_btn.png");
-    _enemyBase->setPosition(ccp(_screenSize.width/2, _tileMap->boundingBox().size.height + _battleFieldY - _enemyBase->boundingBox().size.height/2));
+    _enemyBase->setPosition(ccp(_screenSize.width/2, _tileMap->boundingBox().size.height + _battleFieldY - _enemyBase->boundingBox().size.height));
     this->addChild(_enemyBase, kMiddleground);
     
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
@@ -121,22 +121,22 @@ BattleField::~BattleField() {
 #pragma mark - Touch Events
 void BattleField::xtTouchesBegan(cocos2d::CCSet *_touches, cocos2d::CCEvent *event) {
     
-    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
-    CCPoint location = pTouch->getLocationInView();
-    location = CCDirector::sharedDirector()->convertToGL( location );
-    for (int i=0; i<_troops->count(); i++) {
-        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
-        if (troop->boundingBox().containsPoint(location)) {
-            if (troop->getStatus()==kStatusAttack) {
-                troop->setStatus(kStatusForward);
-            }else {
-                troop->setStatus(kStatusAttack);
-            }
-            
-            _touchedTroop = troop;
-            return;
-        }
-    }
+//    CCTouch *pTouch = (CCTouch *)_touches->anyObject();
+//    CCPoint location = pTouch->getLocationInView();
+//    location = CCDirector::sharedDirector()->convertToGL( location );
+//    for (int i=0; i<_troops->count(); i++) {
+//        TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
+//        if (troop->boundingBox().containsPoint(location)) {
+//            if (troop->getStatus()==kStatusAttack) {
+//                troop->setStatus(kStatusForward);
+//            }else {
+//                troop->setStatus(kStatusAttack);
+//            }
+//            
+//            _touchedTroop = troop;
+//            return;
+//        }
+//    }
     
     _touchedTroop = NULL;
     return;
@@ -205,10 +205,23 @@ void BattleField::update(float dt) {
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
         if(troop->getStatus()==kStatusForward) {
-            troop->setPositionY(troop->getPositionY()+dt*TANK_PACE);
-            troop->setSpritePosition(troop->getPosition());
-        }else if(troop->getStatus()==kStatusAttack) {
-            //
+            
+            //先检查视野范围内有没有敌军
+            if (troop->radarRangeCheck(_enemyBase->getPosition())) {
+                troop->setStatus(kStatusTarget);    //转为目标状态
+                //TODO 转向敌军, rotate动画
+            }else {
+                //没有敌军，继续前进
+                troop->setPositionY(troop->getPositionY()+dt*TANK_PACE);
+                troop->setSpritePosition(troop->getPosition());
+            }
+
+        }else if(troop->getStatus()==kStatusTarget) {
+            
+            //这里锁定目标后走斜线
+            
+        }else {
+            
         }
         troop->update(dt);
     }

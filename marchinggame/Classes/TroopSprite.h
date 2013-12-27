@@ -35,7 +35,8 @@ public:
     void initTroop();
     virtual void update(float dt);
     virtual void setSpritePosition (CCPoint position);
-    
+    bool radarRangeCheck(CCPoint p);
+    bool attachRangeCheck(CCPoint p);
 
 };
 

@@ -14,6 +14,8 @@ TroopSprite::TroopSprite(BattleField * bf, int akind, CCPoint position) {
     _battleField = bf;
     _status = kStatusForward;   //默认
     _startPosition = position;
+    _radarRange = 200;
+    _attachRange = 100;
 }
 
 TroopSprite::~TroopSprite() {
@@ -82,4 +84,16 @@ void TroopSprite::update(float dt) {
         setPositionY(_body->GetPosition().y * PTM_RATIO);
         setRotation(CC_RADIANS_TO_DEGREES(-1 * _body->GetAngle()));
     }
+}
+
+bool TroopSprite::radarRangeCheck(cocos2d::CCPoint p) {
+    if (this->getPosition().y + _radarRange > p.y) {
+        return true;
+    }
+    return false;
+}
+
+bool TroopSprite::attachRangeCheck(CCPoint p) {
+    //TODO
+    return false;
 }
