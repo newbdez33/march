@@ -18,6 +18,8 @@ class BattleField;
 class TroopSprite : public CCSprite {
 private:
     CCPoint _startPosition;
+    float _radarRange;
+    float _attachRange;
     
 public:
     
@@ -33,6 +35,7 @@ public:
     void initTroop();
     virtual void update(float dt);
     virtual void setSpritePosition (CCPoint position);
+    
 
 };
 

@@ -48,6 +48,7 @@ private:
     CommanderLayer *_commanderLayer;
     cocos2d::CCTMXTiledMap* _tileMap;
     cocos2d::CCTMXLayer* _background;
+    CCSprite * _enemyBase;
 
 };
 

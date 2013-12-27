@@ -52,6 +52,10 @@ bool BattleField::init()
     this->addChild(_tileMap, kBackground);
     //_tileMap->setVisible(false);
     
+    _enemyBase = CCSprite::create("down_btn.png");
+    _enemyBase->setPosition(ccp(_screenSize.width/2, _tileMap->boundingBox().size.height + _battleFieldY - _enemyBase->boundingBox().size.height/2));
+    this->addChild(_enemyBase, kMiddleground);
+    
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
     this->setTouchEnabled(true);
     
