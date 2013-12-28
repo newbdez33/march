@@ -47,7 +47,7 @@ void TroopSprite::initTroop() {
     _body->SetAngularDamping(0.8);
     
     b2CircleShape circle;
-    circle.m_radius = 32.0f/PTM_RATIO; //TODO 这个值要调整
+    circle.m_radius = 40.0f/PTM_RATIO; //TODO 这个值要调整
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &circle;
     fixtureDef.density = 5;
@@ -111,18 +111,17 @@ void TroopSprite::update(float dt) {
     
         if (this->attachRangeCheck(_battleField->getEnemyBase()->getPosition())) {
             this->setStatus(kStatusAttack);
+        }else {
+            //这里锁定目标后走斜线
+            CCPoint position = this->getPosition();
+            position.x += _vector.x * dt;
+            position.y += _vector.y * dt;
+            this->setSpritePosition(position);
         }
         
-        //这里锁定目标后走斜线
-        CCPoint position = this->getPosition();
-        position.x += _vector.x * dt;
-        position.y += _vector.y * dt;
-        //this->setSpritePosition(position);
     } else {
-        //Attack
-        
+        //Attack stop
     }
-    
     
 }
 
@@ -134,7 +133,9 @@ bool TroopSprite::radarRangeCheck(cocos2d::CCPoint p) {
 }
 
 bool TroopSprite::attachRangeCheck(CCPoint p) {
-    //TODO
+    if (this->getPosition().y + _attachRange > p.y) {
+        return true;
+    }
     return false;
 }
 

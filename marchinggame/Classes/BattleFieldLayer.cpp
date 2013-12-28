@@ -78,6 +78,20 @@ void BattleField::initPhysics() {
     _world->SetAllowSleeping(false); //if not moving then not generationg derived data(skip checking for derived data from objects)
     _world->SetContinuousPhysics(true); //连续检查碰撞
     
+    //create table sides
+    b2BodyDef tableBodyDef;
+    tableBodyDef.position.Set(0, 0);
+    b2Body* tableBody = _world->CreateBody(&tableBodyDef);
+    
+    // Define the table edges
+    b2EdgeShape tableBox;
+    
+    // top
+    tableBox.Set(b2Vec2(0, (_tileMap->boundingBox().size.height + _battleFieldY) * 0.91f/PTM_RATIO),
+                 b2Vec2(_tileMap->boundingBox().size.width/PTM_RATIO, (_tileMap->boundingBox().size.height + _battleFieldY) * 0.91f/PTM_RATIO));
+    tableBody->CreateFixture(&tableBox,0);
+
+    
     m_debugDraw = new GLESDebugDraw( PTM_RATIO );
     _world->SetDebugDraw(m_debugDraw);
     
