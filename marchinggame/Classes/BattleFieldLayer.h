@@ -29,6 +29,7 @@ public:
     CREATE_FUNC(BattleField);
     
     CC_SYNTHESIZE(b2World *, _world, World);
+    CC_SYNTHESIZE(CCSprite *, _enemyBase, EnemyBase);
     
     //XTLayer
     virtual void xtTouchesBegan(cocos2d::CCSet* _touches, cocos2d::CCEvent* event);
@@ -48,7 +49,6 @@ private:
     CommanderLayer *_commanderLayer;
     cocos2d::CCTMXTiledMap* _tileMap;
     cocos2d::CCTMXLayer* _background;
-    CCSprite * _enemyBase;
 
 };
 

@@ -6,7 +6,7 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define TANK_PACE   30  //临时定义，每秒单位距离
+#define DEBUG_DRAW  0
 
 CCScene* BattleField::scene()
 {
@@ -50,7 +50,9 @@ bool BattleField::init()
     _background = _tileMap->layerNamed("background");
     _tileMap->setPosition(ccp(0, _battleFieldY));
     this->addChild(_tileMap, kBackground);
-    //_tileMap->setVisible(false);
+    if (DEBUG_DRAW) {
+        _tileMap->setVisible(false);
+    }
     
     _enemyBase = CCSprite::create("down_btn.png");
     _enemyBase->setPosition(ccp(_screenSize.width/2, _tileMap->boundingBox().size.height + _battleFieldY - _enemyBase->boundingBox().size.height));
@@ -93,7 +95,10 @@ void BattleField::troopSend(cocos2d::CCSprite *troop) {
 //    CCFiniteTimeAction* move = CCSequence::create(CCMoveTo::create(120, ccp(troop->getPosition().x, _tileMap->boundingBox().size.height+BOX_WIDTH)), CCCallFuncN::create(this, callfuncN_selector(BattleField::troopDismiss)), NULL);
 //    troop->runAction(move);
     this->addChild(troop, kMiddleground);
-    //troop->setVisible(false);
+    if (DEBUG_DRAW) {
+        troop->setVisible(false);
+    }
+
 }
 
 void BattleField::troopDismiss(cocos2d::CCNode *sender) {
@@ -204,25 +209,6 @@ void BattleField::update(float dt) {
     
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);
-        if(troop->getStatus()==kStatusForward) {
-            
-            //先检查视野范围内有没有敌军
-            if (troop->radarRangeCheck(_enemyBase->getPosition())) {
-                troop->setStatus(kStatusTarget);    //转为目标状态
-                //TODO 转向敌军, rotate动画
-            }else {
-                //没有敌军，继续前进
-                troop->setPositionY(troop->getPositionY()+dt*TANK_PACE);
-                troop->setSpritePosition(troop->getPosition());
-            }
-
-        }else if(troop->getStatus()==kStatusTarget) {
-            
-            //这里锁定目标后走斜线
-            
-        }else {
-            
-        }
         troop->update(dt);
     }
     

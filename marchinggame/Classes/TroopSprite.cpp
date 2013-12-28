@@ -16,6 +16,7 @@ TroopSprite::TroopSprite(BattleField * bf, int akind, CCPoint position) {
     _startPosition = position;
     _radarRange = 200;
     _attachRange = 100;
+    _speed = 100;
 }
 
 TroopSprite::~TroopSprite() {
@@ -79,11 +80,50 @@ void TroopSprite::setSpritePosition (CCPoint position) {
 
 void TroopSprite::update(float dt) {
     
+    _dt = dt;
+    
     if (_body && isVisible()) {
         setPositionX(_body->GetPosition().x * PTM_RATIO);
         setPositionY(_body->GetPosition().y * PTM_RATIO);
-        setRotation(CC_RADIANS_TO_DEGREES(-1 * _body->GetAngle()));
     }
+    
+    if(this->getStatus()==kStatusForward) {
+        
+        //先检查视野范围内有没有敌军
+        if (this->radarRangeCheck(_battleField->getEnemyBase()->getPosition())) {
+            
+            this->setStatus(kStatusTarget);    //转为目标状态
+            
+        }else {
+            
+            //没有敌军，直线前进
+            this->setPositionY(this->getPositionY()+dt*_speed);
+            this->setSpritePosition(this->getPosition());
+            
+        }
+        
+        return;
+    }
+        
+    this->rotateToTarget(this->getBattleField()->getEnemyBase()->getPosition());
+    
+    if(this->getStatus()==kStatusTarget) {
+    
+        if (this->attachRangeCheck(_battleField->getEnemyBase()->getPosition())) {
+            this->setStatus(kStatusAttack);
+        }
+        
+        //这里锁定目标后走斜线
+        CCPoint position = this->getPosition();
+        position.x += _vector.x * dt;
+        position.y += _vector.y * dt;
+        //this->setSpritePosition(position);
+    } else {
+        //Attack
+        
+    }
+    
+    
 }
 
 bool TroopSprite::radarRangeCheck(cocos2d::CCPoint p) {
@@ -96,4 +136,32 @@ bool TroopSprite::radarRangeCheck(cocos2d::CCPoint p) {
 bool TroopSprite::attachRangeCheck(CCPoint p) {
     //TODO
     return false;
+}
+
+float TroopSprite::rotateToTarget(CCPoint p) {
+    
+    // 转向敌军, rotate动画
+    CCPoint point = ccpSub(_battleField->getEnemyBase()->getPosition(), this->getPosition());
+    float angleRadians = atanf((float)point.y / (float)point.x);
+    float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
+    float cocosAngle = angleDegrees;
+    if (cocosAngle>0) {
+        cocosAngle = 90 - cocosAngle;
+    } else {
+        cocosAngle = - (90 + cocosAngle);
+    }
+    
+    if (this->getRotation() != cocosAngle) {
+        CCLog("x:%f, y:%f, ang:%f", point.x, point.y, cocosAngle);
+        CCLog("angle:%f", cocosAngle);
+        //TODO 动画调头
+        this->setRotation(cocosAngle);
+    }
+    
+    //得到向量
+    _vector = ccp ( _speed * cos( cocosAngle ),
+                   -_speed * sin( cocosAngle ));
+    
+    return cocosAngle;
+    
 }

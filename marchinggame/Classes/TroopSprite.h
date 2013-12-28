@@ -20,6 +20,8 @@ private:
     CCPoint _startPosition;
     float _radarRange;
     float _attachRange;
+    float _speed;
+    float _dt;
     
 public:
     
@@ -27,6 +29,7 @@ public:
     CC_SYNTHESIZE(b2Body *, _body, Body);
     CC_SYNTHESIZE(int, _type, Type);
     CC_SYNTHESIZE(BattleField *, _battleField, BattleField);
+    CC_SYNTHESIZE(CCPoint, _vector, Vector);
     
     ~TroopSprite(void);
     TroopSprite(BattleField * bf, int akind, CCPoint position);
@@ -37,6 +40,7 @@ public:
     virtual void setSpritePosition (CCPoint position);
     bool radarRangeCheck(CCPoint p);
     bool attachRangeCheck(CCPoint p);
+    float rotateToTarget(CCPoint p);
 
 };
 
