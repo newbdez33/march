@@ -16,7 +16,7 @@ TroopSprite::TroopSprite(BattleField * bf, int akind, CCPoint position) {
     _startPosition = position;
     _radarRange = 200;
     _attachRange = 100;
-    _speed = 100;
+    _speed = 50;
 }
 
 TroopSprite::~TroopSprite() {
@@ -36,6 +36,10 @@ TroopSprite * TroopSprite::create(BattleField * bf, int akind, CCPoint position)
 }
 
 void TroopSprite::initTroop() {
+    
+    CCString *name = CCString::createWithFormat("troop%d.png", _type);
+    //this->initWithSpriteFrameName(name->getCString());
+    this->initWithFile(name->getCString());
 
     //box2d
     b2BodyDef bodyDef;
@@ -47,16 +51,12 @@ void TroopSprite::initTroop() {
     _body->SetAngularDamping(0.8);
     
     b2CircleShape circle;
-    circle.m_radius = 40.0f/PTM_RATIO; //TODO 这个值要调整
+    circle.m_radius = (this->boundingBox().size.width/2)/PTM_RATIO; //TODO 这个值要调整
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &circle;
-    fixtureDef.density = 5;
-    fixtureDef.restitution = 0.7;
+    fixtureDef.density = 1;
+    fixtureDef.restitution = 10;
     fixtureDef.filter.categoryBits = 0x0010;
-    
-    CCString *name = CCString::createWithFormat("troop%d.png", _type);
-    //this->initWithSpriteFrameName(name->getCString());
-    this->initWithFile(name->getCString());
     
     _body->CreateFixture(&fixtureDef);
     _body->SetUserData(this);
@@ -85,6 +85,16 @@ void TroopSprite::update(float dt) {
     if (_body && isVisible()) {
         setPositionX(_body->GetPosition().x * PTM_RATIO);
         setPositionY(_body->GetPosition().y * PTM_RATIO);
+    }
+    
+    if(this->getStatus()==kStatusHold) {
+        _holdTimer += dt;
+        if(_holdTimer>0.1) {
+            _holdTimer = 0;
+            this->setStatus(kStatusForward);
+        }
+        //wiat
+        return;
     }
     
     if(this->getStatus()==kStatusForward) {
@@ -166,3 +176,8 @@ float TroopSprite::rotateToTarget(CCPoint p) {
     return cocosAngle;
     
 }
+
+void TroopSprite::fireTarget(CCPoint p) {
+    
+}
+

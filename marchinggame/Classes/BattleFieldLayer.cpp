@@ -2,6 +2,7 @@
 #include "SimpleAudioEngine.h"
 #include "TroopSprite.h"
 #include "Box2D.h"
+#include "CollisionListener.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -77,6 +78,8 @@ void BattleField::initPhysics() {
     _world = new b2World(gravity);
     _world->SetAllowSleeping(false); //if not moving then not generationg derived data(skip checking for derived data from objects)
     _world->SetContinuousPhysics(true); //连续检查碰撞
+    _collisionListener = new CollisionListener();
+    _world->SetContactListener(_collisionListener);
     
     //create table sides
     b2BodyDef tableBodyDef;
@@ -219,7 +222,7 @@ void BattleField::draw() {
 
 void BattleField::update(float dt) {
     
-    _world->Step(dt, 10, 10);
+    _world->Step(dt, 1, 1);
     
     for(int i=0; i<_troops->count(); i++) {
         TroopSprite *troop = (TroopSprite *)_troops->objectAtIndex(i);

@@ -324,6 +324,7 @@
 		CEB80EF7186C36440065B318 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EC9186C36440065B318 /* b2Rope.cpp */; };
 		CEB80EFD186D62F90065B318 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EF9186D62F80065B318 /* GLES-Render.cpp */; };
 		CEB80EFE186D62F90065B318 /* TroopSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EFB186D62F90065B318 /* TroopSprite.cpp */; };
+		CEB80F01187002860065B318 /* CollisionListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB80EFF187002860065B318 /* CollisionListener.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1011,6 +1012,8 @@
 		CEB80EFA186D62F90065B318 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Classes/GLES-Render.h"; sourceTree = "<group>"; };
 		CEB80EFB186D62F90065B318 /* TroopSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TroopSprite.cpp; path = Classes/TroopSprite.cpp; sourceTree = "<group>"; };
 		CEB80EFC186D62F90065B318 /* TroopSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TroopSprite.h; path = Classes/TroopSprite.h; sourceTree = "<group>"; };
+		CEB80EFF187002860065B318 /* CollisionListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionListener.cpp; sourceTree = "<group>"; };
+		CEB80F00187002860065B318 /* CollisionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionListener.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2228,6 +2231,8 @@
 		CE33C0BD185561BB008E78D3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CEB80EFF187002860065B318 /* CollisionListener.cpp */,
+				CEB80F00187002860065B318 /* CollisionListener.h */,
 				CEB80EF9186D62F80065B318 /* GLES-Render.cpp */,
 				CEB80EFA186D62F90065B318 /* GLES-Render.h */,
 				CEB80EFB186D62F90065B318 /* TroopSprite.cpp */,
@@ -2685,6 +2690,7 @@
 				CE33BF4A185561B9008E78D3 /* CDOpenALSupport.m in Sources */,
 				CE33C001185561BA008E78D3 /* LocalStorage.cpp in Sources */,
 				CE33BF4D185561B9008E78D3 /* CocosDenshion.m in Sources */,
+				CEB80F01187002860065B318 /* CollisionListener.cpp in Sources */,
 				CE33BEDB185561B8008E78D3 /* ccUTF8.cpp in Sources */,
 				CE33BE09185561B7008E78D3 /* CCLabelBMFont.cpp in Sources */,
 				CE33BD7D185561B6008E78D3 /* CCNode.cpp in Sources */,

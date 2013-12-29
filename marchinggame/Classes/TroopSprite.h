@@ -22,6 +22,7 @@ private:
     float _attachRange;
     float _speed;
     float _dt;
+    float _holdTimer;
     
 public:
     
@@ -41,6 +42,7 @@ public:
     bool radarRangeCheck(CCPoint p);
     bool attachRangeCheck(CCPoint p);
     float rotateToTarget(CCPoint p);
+    void fireTarget(CCPoint p);
 
 };
 

@@ -42,6 +42,8 @@ public:
 private:
     
     GLESDebugDraw * m_debugDraw;
+    b2ContactListener * _collisionListener;
+    
     CCArray *_troops;
     TroopSprite *_touchedTroop;
     CCSize _screenSize;
