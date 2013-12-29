@@ -35,8 +35,8 @@ void CollisionListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifo
         
     if (spriteA && spriteB) {
         
-        TroopSprite *blockedOne = (spriteA->getPosition().y < spriteB->getPosition().y)?spriteA:spriteB;
-        blockedOne->setStatus(kStatusHold);
+        //TroopSprite *blockedOne = (spriteA->getPosition().y < spriteB->getPosition().y)?spriteA:spriteB;
+        //blockedOne->setStatus(kStatusHold);
     
     }
     

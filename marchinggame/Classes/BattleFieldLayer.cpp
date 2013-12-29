@@ -90,8 +90,8 @@ void BattleField::initPhysics() {
     b2EdgeShape tableBox;
     
     // top
-    tableBox.Set(b2Vec2(0, (_tileMap->boundingBox().size.height + _battleFieldY) * 0.91f/PTM_RATIO),
-                 b2Vec2(_tileMap->boundingBox().size.width/PTM_RATIO, (_tileMap->boundingBox().size.height + _battleFieldY) * 0.91f/PTM_RATIO));
+    tableBox.Set(b2Vec2(0, (_tileMap->boundingBox().size.height + _battleFieldY) * 0.99f/PTM_RATIO),
+                 b2Vec2(_tileMap->boundingBox().size.width/PTM_RATIO, (_tileMap->boundingBox().size.height + _battleFieldY) * 0.99f/PTM_RATIO));
     tableBody->CreateFixture(&tableBox,0);
 
     

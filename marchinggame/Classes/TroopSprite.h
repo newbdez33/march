@@ -23,6 +23,7 @@ private:
     float _speed;
     float _dt;
     float _holdTimer;
+    float _fireTimer;
     
 public:
     

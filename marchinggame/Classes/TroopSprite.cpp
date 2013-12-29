@@ -17,6 +17,8 @@ TroopSprite::TroopSprite(BattleField * bf, int akind, CCPoint position) {
     _radarRange = 200;
     _attachRange = 100;
     _speed = 50;
+    _fireTimer = 0;
+    _holdTimer = 0;
 }
 
 TroopSprite::~TroopSprite() {
@@ -54,8 +56,9 @@ void TroopSprite::initTroop() {
     circle.m_radius = (this->boundingBox().size.width/2)/PTM_RATIO; //TODO 这个值要调整
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &circle;
-    fixtureDef.density = 1;
-    fixtureDef.restitution = 10;
+    fixtureDef.density = 5;
+    fixtureDef.restitution = 0;
+    fixtureDef.friction = 10;
     fixtureDef.filter.categoryBits = 0x0010;
     
     _body->CreateFixture(&fixtureDef);
@@ -130,7 +133,12 @@ void TroopSprite::update(float dt) {
         }
         
     } else {
-        //Attack stop
+        //Attack
+        _fireTimer += _dt;
+        if(_fireTimer>1) {
+            _fireTimer = 0;
+            this->fireTarget(this->getBattleField()->getEnemyBase()->getPosition());
+        }
     }
     
 }
@@ -178,6 +186,10 @@ float TroopSprite::rotateToTarget(CCPoint p) {
 }
 
 void TroopSprite::fireTarget(CCPoint p) {
-    
+    CCSprite *bullet = CCSprite::create("bullet.png");
+    bullet->setPosition(this->getPosition());
+    this->getBattleField()->addChild(bullet);
+    bullet->cocos2d::CCNode::setRotation(90);
+    bullet->runAction(CCMoveTo::create(0.5, p));
 }
 
